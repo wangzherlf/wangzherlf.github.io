@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="学习笔记">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习笔记">
+  
+    <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Linux常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/Linux常用命令/" class="article-date">
+  <time datetime="2018-03-23T10:48:05.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/Linux常用命令/">Linux常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r x.zip abc/</span><br></pre></td></tr></table></figure>
+<h3 id="过滤压缩"><a href="#过滤压缩" class="headerlink" title="过滤压缩"></a>过滤压缩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r test.zip test -x /test/aaa/* -x /test/bbb/*    //参数 -x 表示过滤；后面跟要过滤掉的文件或文件夹；</span><br></pre></td></tr></table></figure>
+<h3 id="拖拽上传下载"><a href="#拖拽上传下载" class="headerlink" title="拖拽上传下载"></a>拖拽上传下载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install lrzsz;  //安装lrzsz</span><br><span class="line">sz //下载</span><br><span class="line">rz //上传</span><br></pre></td></tr></table></figure>
+<h3 id="重启nginx"><a href="#重启nginx" class="headerlink" title="重启nginx"></a>重启nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+<h3 id="查看端口占用与杀进程"><a href="#查看端口占用与杀进程" class="headerlink" title="查看端口占用与杀进程"></a>查看端口占用与杀进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -ntpl      //查看端口占用</span><br><span class="line"></span><br><span class="line">kill -9 $pid       //杀掉占用端口的进程$pid</span><br></pre></td></tr></table></figure>
+<h3 id="查看内存占用情况"><a href="#查看内存占用情况" class="headerlink" title="查看内存占用情况"></a>查看内存占用情况</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m</span><br></pre></td></tr></table></figure>
+<h3 id="内存清理"><a href="#内存清理" class="headerlink" title="内存清理"></a>内存清理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 1 &gt; /proc/sys/vm/drop_caches</span><br></pre></td></tr></table></figure>
+<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip addr    查看本机IP</span><br><span class="line">curl ifconfig.me  查看公网IP</span><br><span class="line">tracepath www.baidu.com 查看网关ip</span><br></pre></td></tr></table></figure>
+<h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><p>使用mkdir命令创建目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir $HOME/testFolder</span><br></pre></td></tr></table></figure></p>
+<h3 id="切换目录"><a href="#切换目录" class="headerlink" title="切换目录"></a>切换目录</h3><p>使用cd命令切换目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd $HOME/testFolder</span><br></pre></td></tr></table></figure></p>
+<p>使用<code>cd ../</code>命令切换到上一级目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ../</span><br></pre></td></tr></table></figure></p>
+<h3 id="移动目录"><a href="#移动目录" class="headerlink" title="移动目录"></a>移动目录</h3><p>使用mv命令移动目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv $HOME/testFolder /var/tmp</span><br></pre></td></tr></table></figure></p>
+<h3 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h3><p>使用rm -rf命令删除目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /var/tmp/testFolder</span><br></pre></td></tr></table></figure></p>
+<h3 id="查看目录下的文件"><a href="#查看目录下的文件" class="headerlink" title="查看目录下的文件"></a>查看目录下的文件</h3><p>使用ls命令查看目录下所有文件和文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /etc    // /etc目录默认是*nix系统的软件配置文件存放位置</span><br></pre></td></tr></table></figure></p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><p>使用touch命令创建文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/testFile</span><br></pre></td></tr></table></figure></p>
+<h3 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h3><p>使用cp命令复制文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp ~/testFile ~/testNewFile</span><br></pre></td></tr></table></figure></p>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>使用rm命令删除文件，输入<code>y</code>后回车确认删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm ~/testFile</span><br></pre></td></tr></table></figure></p>
+<h3 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h3><p>使用cat命令查看文件内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.bash_history</span><br></pre></td></tr></table></figure></p>
+<h2 id="过滤-管道与重定向"><a href="#过滤-管道与重定向" class="headerlink" title="过滤,管道与重定向"></a>过滤,管道与重定向</h2><h3 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h3><p>过滤出<code>/etc/passwd</code>文件中包含<code>root</code>的记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;root&apos; /etc/passwd    // 指定文件中查找记录</span><br></pre></td></tr></table></figure></p>
+<p>递归地过滤出<code>/var/log</code>目录中包含<code>linux</code>的记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -r &apos;linux&apos; /var/log   // 指定目录的所有文件中查找记录</span><br></pre></td></tr></table></figure></p>
+<h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3><p>Linux中管道的作用是将上一个命令的输出作为下一个命令的输入，像pipe一样将各个命令串联起来执行，管道的操作符是<code>|</code><br>过滤出/etc/passwd文件中包含<code>root</code>的记录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd | grep &apos;root&apos;</span><br></pre></td></tr></table></figure></p>
+<p>过滤出/etc目录中名字包含<code>ssh</code>的目录(不包含子目录)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /etc | grep &apos;ssh&apos;</span><br></pre></td></tr></table></figure></p>
+<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p>可以使用<code>&gt;</code>或<code>&lt;</code>将命令的输出重定向到一个文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;Hello world&apos; &gt; ~/test.txt</span><br></pre></td></tr></table></figure></p>
+<h2 id="运维常用命令"><a href="#运维常用命令" class="headerlink" title="运维常用命令"></a>运维常用命令</h2><h3 id="ping-命令"><a href="#ping-命令" class="headerlink" title="ping 命令"></a>ping 命令</h3><p>对cloud.tencent.com发送4个ping包，检查与其是否联通<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -c 4 cloud.tencent.com</span><br></pre></td></tr></table></figure></p>
+<h3 id="netstat-命令"><a href="#netstat-命令" class="headerlink" title="netstat 命令"></a>netstat 命令</h3><p>netstat命令用于显示各种网络相关信息，如网络连接、路由表、接口状态等等</p>
+<p>列出所有处于监听状态的tcp端口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -lt</span><br></pre></td></tr></table></figure></p>
+<p>查看所有的端口信息，包括PID和进程名称<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tulpn</span><br></pre></td></tr></table></figure></p>
+<h3 id="ps-命令"><a href="#ps-命令" class="headerlink" title="ps 命令"></a>ps 命令</h3><p>过滤得到当前系统中的ssh进程信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -aux | grep &apos;ssh&apos;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/23/Linux常用命令/" data-id="cjf3to4cp000870pvatn4i49y" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-HTML5从入门到精通" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/HTML5从入门到精通/" class="article-date">
+  <time datetime="2018-03-23T10:45:14.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/html/">html</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/HTML5从入门到精通/">HTML5从入门到精通</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.caniuse.com" target="_blank" rel="noopener">www.caniuse.com</a>    按照浏览器版本提供HTML5功能支持情况<br><a href="http://www.html5test.com" target="_blank" rel="noopener">www.html5test.com</a>  显示用户浏览器对HTML5规范的支持情况<br><a href="http://www.modernizr.com" target="_blank" rel="noopener">www.modernizr.com</a>  特征检测库，检测当前浏览器是否支持html5和css3的某些特性</p>
+<p>伯斯塔尔法则：发送时要保守，接收时要开放</p>
+<h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><p>XML的错误处理模型是当解析器遇到错误，就停止解析</p>
+<h3 id="HTML5组织"><a href="#HTML5组织" class="headerlink" title="HTML5组织"></a>HTML5组织</h3><ul>
+<li>WHATWG(web超文本应用技术工作组)</li>
+<li>W3C(万维网联盟)</li>
+<li>IETF(因特网工程任务组)</li>
+</ul>
+<h3 id="HTML5构成"><a href="#HTML5构成" class="headerlink" title="HTML5构成"></a>HTML5构成</h3><ul>
+<li>Canvas</li>
+<li>Channel消息传送</li>
+<li>Cross-document 消息传送</li>
+<li>geolocation</li>
+<li>MathML</li>
+<li>Microdata</li>
+<li>Server-Sent Events</li>
+<li>Scalable Vector Graphics(SVG)</li>
+<li>WebSocket API </li>
+<li>Web Origin Concept</li>
+<li>Web Storage</li>
+<li>Web SQL database</li>
+<li>Web Workers</li>
+<li>XMLHttpRequest Level 2</li>
+</ul>
+<h3 id="HTML5设计理念"><a href="#HTML5设计理念" class="headerlink" title="HTML5设计理念"></a>HTML5设计理念</h3><ul>
+<li>避免不必要的复杂性<br>简化doctype为<code>&lt;!DOCTYPE html&gt;</code>,<br>doctype没有html版本区分的意思，不是用来写给浏览器看的，而是写给验证器看的；为了让验证器按照doctype来验证文档<br>doctype的另一个用途是触发标准模式，而不是使用兼容模型(quiks mode)</li>
+</ul>
+<p>简化文档字符编码为<code>&lt;meta charset=&quot;utf-8&quot;&gt;</code><br>简化link元素为<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;xxx.css&quot;&gt;</code>,省略type属性<br>简化script元素为<code>&lt;script src=&quot;xxx.js&quot;&gt;</code>,script元素省略type属性，浏览器默认认为引入的是javascript;如果引入其他脚本，可以添加type属性来定义</p>
+<ul>
+<li>支持已有的内容</li>
+<li>解决现实问题</li>
+<li>求真务实<br>html5中的元素最重要的是语义，跟位置没有关系，这些元素只跟内容有关。</li>
+<li><p>平稳退化，渐进增强<br>使用type属性增强表单，当浏览器不识别type属性的值时，会自动退化为text<br>使用video-scorce属性平稳退化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;video&gt;</span><br><span class="line">    &lt;source src=&quot;movie.mp4&quot;&gt;  // 支持video属性和.mp4</span><br><span class="line">    &lt;source src=&quot;movie.ogv&quot;&gt;  // 支持video属性和.ogv</span><br><span class="line">    &lt;object data=&quot;movie.swf&quot;&gt; // 不支持video属性，支持.swf</span><br><span class="line">        &lt;a href=&quot;movie.mp4&quot;&gt;download&lt;/a&gt;  // 不支持vieo属性也不支持.swf</span><br><span class="line">    &lt;/object&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最终用户优先<br>当面临一个要解决的问题时，如果W3C和WHATWG给出了不同的解决方案，一旦遇到冲突，最终用户优先，然后是作者(开发人员)，其次是实现者(浏览器厂商)，再次是标准制定者(WHATWG和W3C)</p>
+</li>
+</ul>
+<h3 id="lint工具"><a href="#lint工具" class="headerlink" title="lint工具"></a>lint工具</h3><p>lint工具：一种软件质量保证工具，可以统一编码风格，检查出一般的语法错误，虽然完全合乎语法要求但可能潜在的不易发现的错误。<br>JSlint: <a href="http://www.jslint.org" target="_blank" rel="noopener">www.jslint.org</a><br>HTMLlint: <a href="http://www.htmllint.com" target="_blank" rel="noopener">www.htmllint.com</a></p>
+<p>编写HTML5页面，首先要检测浏览器是否支持相应的元素</p>
+<p>如果使用语义性的元素，可以加快浏览器解释页面中的元素的速度</p>
+<p>默认情况下，css会默认元素的display属性值为inline,因此对于html5新增的元素需要将元素的display属性设置为block</p>
+<p>有些浏览器不支持html5新增的元素，因此为了给新增元素添加样式，需要在头部head中使用javascript来处理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    document.createElement(&apos;article&apos;);</span><br><span class="line">    document.createElement(&apos;header&apos;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>网页标签与网页元素的区别：</strong><br>网页标签指包含在<code>&lt;</code>与<code>&gt;</code>起止标识符中，构成一个标签<br>网页元素是由标签组成，包括元素名称和元素属性</p>
+<p>空标签：只有起始标签没有结束标签，如<code>&lt;hr /&gt;</code></p>
+<h2 id="HTML标签"><a href="#HTML标签" class="headerlink" title="HTML标签"></a>HTML标签</h2><h3 id="文档结构标签"><a href="#文档结构标签" class="headerlink" title="文档结构标签"></a>文档结构标签</h3><p>主要用于标识文档的基本结构<br><code>&lt;html&gt;&lt;/html&gt;</code><br>&lt;<code>head&gt;&lt;/head&gt;</code><br><code>&lt;body&gt;&lt;/body&gt;</code></p>
+<h3 id="文本格式标签"><a href="#文本格式标签" class="headerlink" title="文本格式标签"></a>文本格式标签</h3><p>主要用于标识文本区域，并附带一定的显示格式<br><code>&lt;title&gt;&lt;/title&gt;</code><br><code>&lt;h&gt;&lt;/h&gt;</code>  标识网页标题文本 h1-h6<br><code>&lt;p&gt;&lt;/p&gt;</code><br><code>&lt;pre&gt;&lt;/pre&gt;</code>   标识预定义文本<br><code>&lt;blockquote&gt;&lt;/blockquote&gt;</code>  标识引用文本</p>
+<h3 id="字符格式标签"><a href="#字符格式标签" class="headerlink" title="字符格式标签"></a>字符格式标签</h3><p>主要用于标识部分文本字符的语义<br><code>&lt;b&gt;&lt;/b&gt;</code>   标识强调文本，以加粗效果显示<br><code>&lt;i&gt;&lt;/i&gt;</code>   标识引用文本，以斜体效果显示<br><code>&lt;blink&gt;&lt;/blink&gt;</code>  标识闪烁文本，以闪烁效果显示<br><code>&lt;big&gt;&lt;/big&gt;</code>   标识放大文本，以放大效果显示<br><code>&lt;small&gt;&lt;/small&gt;</code>   标识缩小文本，以缩小效果显示<br><code>&lt;sup&gt;&lt;/sup&gt;</code>     标识上标文本，以上标效果显示<br><code>&lt;sub&gt;&lt;/sub&gt;</code>     标识下标文本，以下标效果显示<br><code>&lt;cite&gt;&lt;/cite&gt;</code>   表示引用文本，以引用效果显示</p>
+<h3 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h3><p><code>&lt;ul&gt;&lt;/ul&gt;</code>   标识无序列表<br><code>&lt;ol&gt;&lt;/ol&gt;</code>   标识有序列表<br><code>&lt;li&gt;&lt;/li&gt;</code>   标识列表项目</p>
+<h3 id="定义列表"><a href="#定义列表" class="headerlink" title="定义列表"></a>定义列表</h3><p><code>&lt;dl&gt;&lt;/dl&gt;</code>   标识定义列表<br><code>&lt;dt&gt;&lt;/dt&gt;</code>   标识词条<br><code>&lt;dd&gt;&lt;/dd&gt;</code>   标识解释</p>
+<h3 id="链接标签"><a href="#链接标签" class="headerlink" title="链接标签"></a>链接标签</h3><p><code>&lt;a href=&quot;&quot;&gt;&lt;/a&gt;</code>   定义链接或锚点。锚点是一种特殊的超链接，可以定位到网页中某个具体的位置。</p>
+<h3 id="多媒体标签"><a href="#多媒体标签" class="headerlink" title="多媒体标签"></a>多媒体标签</h3><p><code>&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</code>   嵌入图像<br><code>&lt;embed src=&quot;&quot; type=&quot;&quot;&gt;</code>   嵌入多媒体<br><code>&lt;object data=&quot;&quot; type=&quot;&quot;&gt;&lt;/object&gt;</code>  嵌入多媒体</p>
+<h3 id="表格标签"><a href="#表格标签" class="headerlink" title="表格标签"></a>表格标签</h3><p><code>&lt;table&gt;&lt;/table&gt;</code>       定义表格结构<br><code>&lt;caption&gt;&lt;/caption&gt;</code>   定义表格标题<br><code>&lt;th&gt;&lt;/th&gt;</code>             定义表头<br><code>&lt;tr&gt;&lt;/tr&gt;</code>             定义表格行<br><code>&lt;td&gt;&lt;/td&gt;</code>             定义单元格</p>
+<h3 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h3><p><code>&lt;form action=&quot;&quot;&gt;&lt;/form&gt;</code>   定义表单结构<br><code>&lt;input type=&quot;text&quot;&gt;</code>       定义文本域、单选、复选、按钮<br><code>&lt;textarea name=&quot;&quot; id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;</code>  定义多行文本框<br><code>&lt;select name=&quot;&quot; id=&quot;&quot;&gt;&lt;/select&gt;</code>     定义下拉列表<br><code>&lt;option value=&quot;&quot;&gt;&lt;/option&gt;</code>          定义下拉列表中的选择项目</p>
+<h2 id="HTML公共属性"><a href="#HTML公共属性" class="headerlink" title="HTML公共属性"></a>HTML公共属性</h2><p>公共属性可以分为基本属性、语言属性、键盘属性、内容属性、延伸属性</p>
+<h3 id="基本属性"><a href="#基本属性" class="headerlink" title="基本属性"></a>基本属性</h3><p><code>class</code>  定义类样式规则<br><code>id</code>     定义元素的唯一标识<br><code>style</code>  定义元素的样式声明</p>
+<h3 id="语言属性"><a href="#语言属性" class="headerlink" title="语言属性"></a>语言属性</h3><p>语言属性用来定义元素的语言类型<br><code>lang</code>  定义元素的语言代码或编码<br><code>dir</code> (HTML 4.01 已废弃) 定义文本方向，包括ltr和rtl取值，表示从左向右和从右向左</p>
+<h3 id="键盘属性"><a href="#键盘属性" class="headerlink" title="键盘属性"></a>键盘属性</h3><p>定义元素的键盘访问方法<br><code>accesskey</code>  定义访问某元素的键盘快捷键(需要使用alt+字母访问)<br><code>tabindex</code>   定义元素的tab键索引编号；使用tab遍历页面所有链接和表单元素时，会按tabindex的大小决定顺序</p>
+<h3 id="内容属性"><a href="#内容属性" class="headerlink" title="内容属性"></a>内容属性</h3><p><code>alt</code>       定义元素的替换文本；alt属性只能用在<code>img</code>,<code>area</code>,<code>图片input</code>上.<code>&lt;input type=&quot;image&quot; src=&quot;url&quot; alt=&quot;替换文本&quot;&gt;</code><br><code>title</code>     定义元素的提示文本<br><code>longdesc</code>  定义元素包含内容的大段描述信息<br><code>cite</code>      定义元素包含内容的引用信息  <code>&lt;blockquote cite=&quot;http://xxxx&quot;&gt;&lt;p&gt;xxxx&lt;/p&gt;&lt;/blockquote&gt;</code><br><code>datetime</code>  定义元素包含内容的日期和时间 <code>&lt;div datetime=&quot;2010-1-1 8:0:0&quot;&gt;xxxx&lt;/div&gt;</code></p>
+<h2 id="XHTML"><a href="#XHTML" class="headerlink" title="XHTML"></a>XHTML</h2><h3 id="XHTML结构"><a href="#XHTML结构" class="headerlink" title="XHTML结构"></a>XHTML结构</h3><ol>
+<li>定义文档类型<br>使用<code>DOCTYPE</code>元素定义文档类型<br>DTD表示文档类型定义，里面包含了文档的规则，网页浏览器会根据预定义的DTD来解析HTML元素</li>
+<li>声明命名空间<br>在XHTML根元素中必须使用xmlns属性声明文档的命名空间。<code>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</code>,因为XHTML1.0不允许用户自定义元素，所以它的命名空间都是相同的</li>
+</ol>
+<h3 id="XHTML语法规范"><a href="#XHTML语法规范" class="headerlink" title="XHTML语法规范"></a>XHTML语法规范</h3><ul>
+<li>在文档的开头必须定义文档类型</li>
+<li>在根元素中应声明命名空间，即设置xmlns属性</li>
+<li>所有标签都必须是闭合的</li>
+<li>所有元素和属性都必须是小写</li>
+<li>所有的属性必须用引号括起来</li>
+<li>所有标签必须合理嵌套</li>
+<li>所有属性必须被赋值，没有值的属性就用自身来赋值</li>
+<li>所有特殊符号都用编码来表示</li>
+<li>不要在注释内容中使用<code>--</code>，<code>--</code>只能出现在XHTML注释开头和结束</li>
+<li>XHTML规范废除了name属性，而使用id属性作为统一的名称</li>
+</ul>
+<h3 id="XHTML类型"><a href="#XHTML类型" class="headerlink" title="XHTML类型"></a>XHTML类型</h3><p>XHTML支持3种DTD声明：过渡型(Transitional)，严格型(Strict)，框架型(Frameset)</p>
+<p>DTD是一套关于标签的语法规则。DTD文件是一个ASCII文本文件，后缀名为.dtd,利用DOCTYPE声明中的URL可以访问指定类型的DTD详细信息。</p>
+<p>一个DTD文档包括元素的定义规则，元素间关系的定义规则，元素可使用的属性、实体或符号规则。这些规则用于标识web文档的内容。</p>
+<h3 id="DOCTYPE结构图"><a href="#DOCTYPE结构图" class="headerlink" title="DOCTYPE结构图"></a>DOCTYPE结构图</h3><p><code>&lt;!DOCTYPE(文档类型命令) html(顶级元素) PUBLIC(可用性) &quot;-(注册)//W3C(组织)//DTD(类型) XHTML(标签) 1.0(版本号) Transitional(定义)//EN(语言) &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;(url)&gt;</code></p>
+<ul>
+<li>顶级元素：指定DTD中声明的顶级元素类型，HTML文档默认顶级元素为html</li>
+<li>可用性：指定正式公开标识符是可公开访问的对象还是系统资源。默认为PUBLIC.SYSTEM系统资源包括本地文件或URL</li>
+<li>注册：指定组织是否由国际标准化组织ISO注册。<code>+</code>默认,表示组织名称已注册，<code>-</code>表示组织名称未注册。 W3C是未注册ISO的组织</li>
+<li>组织：指定在DOCTYPE声明引用的DTD的创建和维护的团体或组织名称</li>
+<li>类型：指定公开文本的类，即所引用的对象类型。XHTML默认DTD</li>
+<li>标签：指定公开文本的描述</li>
+<li>定义指文档类型的定义</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/23/HTML5从入门到精通/" data-id="cjf3tkg7e000270pvexqwf8o9" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-apicloud学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/apicloud学习笔记/" class="article-date">
+  <time datetime="2018-03-23T10:38:51.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/apicloud/">apicloud</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/apicloud学习笔记/">apicloud学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="云端代码检出到本地"><a href="#云端代码检出到本地" class="headerlink" title="云端代码检出到本地"></a>云端代码检出到本地</h3><p>代码管理-代码检出-apicloud云端应用</p>
+<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><p>1.实时预览<br>右键-实时预览-打开chrome调试器</p>
+<p>2.手机调试<br>模块-自定义loader-编译-下载到手机<br>配置端口-wifi全量同步</p>
+<h3 id="发布到云平台"><a href="#发布到云平台" class="headerlink" title="发布到云平台"></a>发布到云平台</h3><p>1.<code>git</code>-<code>git add + commit</code>-添加提交信息-ctrl+s保存<br>2.代码管理-同步到云端<br>3.代码-查看修改信息</p>
+<h3 id="发布正式版"><a href="#发布正式版" class="headerlink" title="发布正式版"></a>发布正式版</h3><p>1.证书-创建证书<br>2.云编译</p>
+<h3 id="openFrameGroup参数"><a href="#openFrameGroup参数" class="headerlink" title="openFrameGroup参数"></a>openFrameGroup参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">index:<span class="number">0</span>   <span class="comment">// 当前打开页面</span></span><br><span class="line">scrollEnabled: <span class="literal">true</span> <span class="comment">// 是否支持滚动</span></span><br><span class="line">preload:<span class="number">2</span> 预加载</span><br><span class="line">frames: [</span><br><span class="line">    &#123;</span><br><span class="line">        pageParam: &#123;&#125;  <span class="comment">// 向frame传递参数 </span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="获取传递过来的参数"><a href="#获取传递过来的参数" class="headerlink" title="获取传递过来的参数"></a>获取传递过来的参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api.pageParam</span><br></pre></td></tr></table></figure>
+<h3 id="设置-frameGroup-组当前可见-frame"><a href="#设置-frameGroup-组当前可见-frame" class="headerlink" title="设置 frameGroup 组当前可见 frame"></a>设置 frameGroup 组当前可见 frame</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api.setFrameGroupIndex(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="获取frame高度"><a href="#获取frame高度" class="headerlink" title="获取frame高度"></a>获取frame高度</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api.frameHeight</span><br></pre></td></tr></table></figure>
+<h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">api.ajax(&#123;</span><br><span class="line">    headers: &#123;  <span class="comment">// 身份验证</span></span><br><span class="line">        <span class="string">'X-APICloud-AppId'</span>: xxx,</span><br><span class="line">        <span class="string">'X-APICloud-AppKey'</span>: SHA1(appId + <span class="string">'UZ'</span> + appKey + <span class="string">'UZ'</span> + now) + <span class="string">'.'</span> + now</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">ret, err</span>) </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api.setRefreshHeaderInfo(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="下拉刷新加载完成"><a href="#下拉刷新加载完成" class="headerlink" title="下拉刷新加载完成"></a>下拉刷新加载完成</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api.refreshHeaderLoadDone();</span><br></pre></td></tr></table></figure>
+<h3 id="监听Window-或者-Frame-页面滑动到底部事件"><a href="#监听Window-或者-Frame-页面滑动到底部事件" class="headerlink" title="监听Window 或者 Frame 页面滑动到底部事件"></a>监听Window 或者 Frame 页面滑动到底部事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">api.addEventListener(&#123;</span><br><span class="line">    name: <span class="string">'scrolltobottom'</span> </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="自定义事件监听"><a href="#自定义事件监听" class="headerlink" title="自定义事件监听"></a>自定义事件监听</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">api.addEventListener(&#123;</span><br><span class="line">    name: <span class="string">'customName'</span>  <span class="comment">// 自定义事件名称</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="触发自定义事件"><a href="#触发自定义事件" class="headerlink" title="触发自定义事件"></a>触发自定义事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">api.sendEvent(&#123;</span><br><span class="line">    name: <span class="string">'customName'</span>,  <span class="comment">// 要触发的自定义事件名称</span></span><br><span class="line">    extra: &#123;             <span class="comment">// 触发事件时传递的值</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="执行指定frame或window中的指定函数"><a href="#执行指定frame或window中的指定函数" class="headerlink" title="执行指定frame或window中的指定函数"></a>执行指定frame或window中的指定函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">api.execScript(&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="提示框"><a href="#提示框" class="headerlink" title="提示框"></a>提示框</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">api.toast(&#123;</span><br><span class="line">    msg: <span class="string">'提示显示内容'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$api.setStorage(<span class="string">'name'</span>,value)   <span class="comment">// 设置localStorage</span></span><br><span class="line">$api.getStorage(<span class="string">'name'</span>)         <span class="comment">// 获取localStorage</span></span><br><span class="line">$api.rmStorage(<span class="string">'name'</span>)          <span class="comment">// 删除指定localStorage</span></span><br><span class="line">$api.clearStorage()             <span class="comment">// 删除所有localStorage</span></span><br></pre></td></tr></table></figure>
+<h2 id="选项选择"><a href="#选项选择" class="headerlink" title="选项选择"></a>选项选择</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">api.actionSheet(&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="本地上传"><a href="#本地上传" class="headerlink" title="本地上传"></a>本地上传</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">api.getPicture(&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="prompt-输入框"><a href="#prompt-输入框" class="headerlink" title="prompt 输入框"></a>prompt 输入框</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">api.prompt(&#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="创建数据模型"><a href="#创建数据模型" class="headerlink" title="创建数据模型"></a>创建数据模型</h3><p>1.创建数据表<br>2.导入数据表<br>3.权限设置<br>4.添加测试数据</p>
+<h2 id="页面开发"><a href="#页面开发" class="headerlink" title="页面开发"></a>页面开发</h2><p>1.注意移动端与效果图倍率计算<br>2.沉浸式</p>
+<h2 id="前端框架"><a href="#前端框架" class="headerlink" title="前端框架"></a>前端框架</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> element = $api.byId(id)  <span class="comment">// 获取id元素</span></span><br><span class="line">$api.fixStatusBar(element)  <span class="comment">// 设置沉浸式</span></span><br><span class="line"><span class="keyword">var</span> offset = $api.offset(el)  <span class="comment">// 获取offset</span></span><br><span class="line">offset.t  <span class="comment">// 元素距顶端距离</span></span><br><span class="line">offset.l  <span class="comment">// 元素距左端距离</span></span><br><span class="line">offset.w  <span class="comment">// 元素宽度</span></span><br><span class="line">offset.h  <span class="comment">// 元素高度</span></span><br><span class="line"></span><br><span class="line">$api.html(el, html)  <span class="comment">// 设置html</span></span><br><span class="line">$api.jsonToStr(obj)  <span class="comment">// obj转string</span></span><br><span class="line">$api.domAll(element, <span class="string">'class'</span>)  <span class="comment">// 获取element下指定的class的所有元素</span></span><br><span class="line">$api.removeCls(el, <span class="string">'class'</span>)  <span class="comment">// 删除class</span></span><br><span class="line">$api.addCls(el, <span class="string">'class'</span>)     <span class="comment">// 添加class</span></span><br></pre></td></tr></table></figure>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>1.修改config.xml后需要重新编译并下载</p>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p><code>ctrl + o</code>  wifi实时预览<br><code>ctrl + i</code>  wifi增量同步<br><code>ctrl + alt + b</code> 格式化代码</p>
+<h2 id="目录对应英文"><a href="#目录对应英文" class="headerlink" title="目录对应英文"></a>目录对应英文</h2><p><code>launch</code>  启动图<br><code>res</code>    资源文件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/23/apicloud学习笔记/" data-id="cjf3tc8v2000wzppv0d1bhaf0" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apicloud/">apicloud</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-git入门教程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/git入门教程/" class="article-date">
+  <time datetime="2018-03-23T10:34:02.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/git入门教程/">git入门教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>git是最先进的分布式版本控制系统，没有中央服务器，每个人的电脑就是一个完整的版本库<br>CVS和SVN都是集中式版本控制系统，版本库集中存放在中央服务器</p>
+<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><h3 id="Mac系统"><a href="#Mac系统" class="headerlink" title="Mac系统"></a>Mac系统</h3><p>使用Homebrew,MacPorts安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure></p>
+<h3 id="Ubuntu-Debian系统"><a href="#Ubuntu-Debian系统" class="headerlink" title="Ubuntu,Debian系统"></a>Ubuntu,Debian系统</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git-core</span><br></pre></td></tr></table></figure>
+<h3 id="centos-fedora系统"><a href="#centos-fedora系统" class="headerlink" title="centos,fedora系统"></a>centos,fedora系统</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install git-core</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/23/git入门教程/" data-id="cjf3t61pg000pzppvia20bfp5" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Sublime-Text3设置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/Sublime-Text3设置/" class="article-date">
+  <time datetime="2018-03-23T10:20:33.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sublime-text/">sublime text</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/Sublime-Text3设置/">Sublime-Text3设置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h2><p>选择<code>Preferences -&gt; settings</code>,复制default侧配置到user侧进行修改</p>
+<h2 id="选择主题样式"><a href="#选择主题样式" class="headerlink" title="选择主题样式"></a>选择主题样式</h2><p>选择<code>Preferences -&gt; color Scheme</code>，在弹出的列表项中选择主题样式</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/23/Sublime-Text3设置/" data-id="cjf3sopwc000czppv9xqnrftp" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text/">sublime text</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Sublime-Text3快捷键" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/Sublime-Text3快捷键/" class="article-date">
+  <time datetime="2018-03-23T10:20:17.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sublime-text/">sublime text</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/Sublime-Text3快捷键/">Sublime-Text3快捷键</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="选择类"><a href="#选择类" class="headerlink" title="选择类"></a>选择类</h2><ul>
+<li><code>Ctrl + D</code> 选中光标所占的文本，继续操作则会选中下一个相同的文本。</li>
+<li><code>Alt + F3</code> 选中文本按下快捷键，即可一次性选择全部的相同文本进行同时编辑。举个栗子：快速选中并更改所有相同的变量名、函数名等。</li>
+<li><code>Ctrl + L</code> 选中整行，继续操作则继续选择下一行，效果和 <code>Shift + ↓</code> 效果一样。</li>
+<li><code>Ctrl + Shift + L</code> 先选中多行，再按下快捷键，会在每行行尾插入光标，即可同时编辑这些行。</li>
+<li><code>Ctrl + Shift + M</code> 选择括号内的内容（继续选择父括号）。举个栗子：快速选中删除函数中的代码，重写函数体代码或重写括号内里的内容。</li>
+<li><code>Ctrl + M</code> 光标移动至括号内结束或开始的位置。</li>
+<li><code>Ctrl + Enter</code> 在下一行插入新行。举个栗子：即使光标不在行尾，也能快速向下插入一行。</li>
+<li><code>Ctrl + Shift + Enter</code> 在上一行插入新行。举个栗子：即使光标不在行首，也能快速向上插入一行。</li>
+<li><code>Ctrl + Shift + [</code> 选中代码，按下快捷键，折叠代码。</li>
+<li><code>Ctrl + Shift + ]</code> 选中代码，按下快捷键，展开代码。</li>
+<li><code>Ctrl + K + 0</code> 展开所有折叠代码。</li>
+<li><code>Ctrl + ←</code> 向左单位性地移动光标，快速移动光标。</li>
+<li><code>Ctrl + →</code> 向右单位性地移动光标，快速移动光标。</li>
+<li><code>shift + ↑</code> 向上选中多行。</li>
+<li><code>shift + ↓</code> 向下选中多行。</li>
+<li><code>Shift + ←</code> 向左选中文本。</li>
+<li><code>Shift + →</code> 向右选中文本。</li>
+<li><code>Ctrl + Shift + ←</code> 向左单位性地选中文本。</li>
+<li><code>Ctrl + Shift + →</code> 向右单位性地选中文本。</li>
+<li><code>Ctrl + Shift + ↑</code> 将光标所在行和上一行代码互换（将光标所在行插入到上一行之前）。</li>
+<li><code>Ctrl + Shift + ↓</code> 将光标所在行和下一行代码互换（将光标所在行插入到下一行之后）。</li>
+<li><code>Ctrl + Alt + ↑</code> 或 <code>Ctrl + Alt +</code> 鼠标向上拖动 向上添加多行光标，可同时编辑多行。</li>
+<li><code>Ctrl + Alt + ↓</code> 或 <code>Ctrl + Alt +</code> 鼠标向下拖动 向下添加多行光标，可同时编辑多行。</li>
+</ul>
+<h2 id="编辑类"><a href="#编辑类" class="headerlink" title="编辑类"></a>编辑类</h2><ul>
+<li><code>Ctrl + J</code> 合并选中的多行代码为一行。举个栗子：将多行格式的CSS属性合并为一行。</li>
+<li><code>Ctrl + Shift + D</code> 复制光标所在整行，插入到下一行。</li>
+<li><code>Tab</code> 向右缩进。只对光标后（或者选中的）的代码有效</li>
+<li><code>Shift + Tab</code> 向左缩进。</li>
+<li><code>Ctrl + [</code> 向左缩进。对整行有效</li>
+<li><code>Ctrl + ]</code> 向右缩进。对整行有效</li>
+<li><code>Ctrl + K + K</code> 从光标处开始删除代码至行尾。按住<code>Ctrl</code>，按两次<code>K</code>。</li>
+<li><code>Ctrl + Shift + K</code> 删除整行。</li>
+<li><code>Ctrl + /</code> 注释单行。</li>
+<li><code>Ctrl + Shift + /</code> 注释多行。</li>
+<li><code>Ctrl + K + U</code> 转换大写。</li>
+<li><code>Ctrl + K + L</code> 转换小写。</li>
+<li><code>Ctrl + Z</code> 撤销。</li>
+<li><code>Ctrl + Y</code> 恢复撤销。</li>
+<li><code>Ctrl + U</code> 软撤销，感觉和 <code>Gtrl + Z</code> 一样。</li>
+<li><code>Ctrl + F2</code> 设置书签，<code>F2</code>切换书签</li>
+<li><code>Ctrl + T</code> 左右字母互换。</li>
+<li><code>F6</code> 单词检测拼写</li>
+</ul>
+<h2 id="搜索类"><a href="#搜索类" class="headerlink" title="搜索类"></a>搜索类</h2><ul>
+<li><code>Ctrl + F</code> 打开底部搜索框，查找关键字。</li>
+<li><code>Ctrl + shift + F</code> 在文件夹内查找，与普通编辑器不同的地方是sublime允许添加多个文件夹进行查找，略高端，未研究。</li>
+<li><code>Ctrl + P</code> 打开搜索框。举个栗子：1、输入当前项目中的文件名，快速搜索文件，2、输入<code>@</code>和关键字，查找文件中函数名，3、输入：和数字，跳转到文件中该行代码，4、输入<code>#</code>和关键字，查找变量名。</li>
+<li><code>Ctrl + G</code> 打开搜索框，自动带<code>：</code>，输入数字跳转到该行代码。举个栗子：在页面代码比较长的文件中快速定位。</li>
+<li><code>Ctrl + R</code> 打开搜索框，自动带<code>@</code>，输入关键字，查找文件中的函数名。举个栗子：在函数较多的页面快速查找某个函数。</li>
+<li><code>Ctrl + ：</code> 打开搜索框，自动带<code>#</code>，输入关键字，查找文件中的变量名、属性名等。</li>
+<li><code>Esc</code> 退出光标多行选择，退出搜索框，命令框等。</li>
+<li><code>Ctrl + Shift + P</code> 打开命令框。场景栗子：打开命名框，输入关键字，调用sublime text或插件的功能，例如使用package安装插件。</li>
+</ul>
+<h2 id="显示类"><a href="#显示类" class="headerlink" title="显示类"></a>显示类</h2><ul>
+<li><code>Ctrl + Tab</code> 按文件浏览过的顺序，切换当前窗口的标签页。</li>
+<li><code>Ctrl + PageDown</code> 向左切换当前窗口的标签页。</li>
+<li><code>Ctrl + PageUp</code> 向右切换当前窗口的标签页。</li>
+<li><code>Alt + Shift + 1</code> 窗口分屏，恢复默认1屏（非小键盘的数字）</li>
+<li><code>Alt + Shift + 2</code> 左右分屏-2列</li>
+<li><code>Alt + Shift + 3</code> 左右分屏-3列</li>
+<li><code>Alt + Shift + 4</code> 左右分屏-4列</li>
+<li><code>Alt + Shift + 5</code> 等分4屏</li>
+<li><code>Alt + Shift + 8</code> 垂直分屏-2屏</li>
+<li><code>Alt + Shift + 9</code> 垂直分屏-3屏</li>
+<li><code>Ctrl + K + B</code> 开启/关闭侧边栏。</li>
+<li><code>F11</code> 全屏模式</li>
+<li><code>Shift + F11</code> 免打扰模式</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/23/Sublime-Text3快捷键/" data-id="cjf3sod8b000bzppv18eih819" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text/">sublime text</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Sublime-Text3常用插件及用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/Sublime-Text3常用插件及用法/" class="article-date">
+  <time datetime="2018-03-23T10:20:00.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sublime-text/">sublime text</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/Sublime-Text3常用插件及用法/">Sublime-Text3常用插件及用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[官方插件搜索网址]<a href="https://packagecontrol.io" target="_blank" rel="noopener">https://packagecontrol.io</a></p>
+<h2 id="Markdown-Preview"><a href="#Markdown-Preview" class="headerlink" title="Markdown Preview"></a>Markdown Preview</h2><p>作用：markdown预览插件<br>使用方法：<br>1.按住<code>ctrl+shift+p</code>调出命令面板，输入<code>Preview</code>,选择相应的预览选项；<br>2.按住<code>ctrl+B</code>进行构建生成html </p>
+<h2 id="emmet"><a href="#emmet" class="headerlink" title="emmet"></a>emmet</h2><p>作用：代码生成插件</p>
+<h2 id="sidebarEnhancements"><a href="#sidebarEnhancements" class="headerlink" title="sidebarEnhancements"></a>sidebarEnhancements</h2><p>作用：侧边栏增强</p>
+<h2 id="cTags"><a href="#cTags" class="headerlink" title="cTags"></a>cTags</h2><p>作用：代码跟踪</p>
+<h2 id="DocBlockr"><a href="#DocBlockr" class="headerlink" title="DocBlockr"></a>DocBlockr</h2><p>作用：文档注释<br>使用方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/** + tab <span class="comment">#生成注释文档</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="ADBview"><a href="#ADBview" class="headerlink" title="ADBview"></a>ADBview</h2><p>作用：查看console.log日志；用于android debug调试</p>
+<h2 id="html-css-js-prettify"><a href="#html-css-js-prettify" class="headerlink" title="html-css-js prettify"></a>html-css-js prettify</h2><p>作用：代码美化<br>使用方法：<br>1.依赖node.js运行，在set node path中修改nodejs路径<br>2.set prettify preferences:<br>修改 “indent_inner_html”: true,  “indent_scripts”: “normal”,<br>3.代码美化命令 <code>ctrl+shift+H</code></p>
+<h2 id="BracketHighlighter"><a href="#BracketHighlighter" class="headerlink" title="BracketHighlighter"></a>BracketHighlighter</h2><p>作用：该插件提供行数列高亮的各种配对的语法符号</p>
+<h2 id="Color​Picker"><a href="#Color​Picker" class="headerlink" title="Color​Picker"></a>Color​Picker</h2><p>作用：调用window色板查看及设置css颜色<br>使用方法： <code>ctrl+shift+c</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/23/Sublime-Text3常用插件及用法/" data-id="cjf3so008000azppvxrsn33j6" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text/">sublime text</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Sublime-Text3安装、删除、更新插件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/Sublime-Text3安装、删除、更新插件/" class="article-date">
+  <time datetime="2018-03-23T10:19:38.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sublime-text/">sublime text</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/Sublime-Text3安装、删除、更新插件/">Sublime-Text3安装、删除、更新插件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装package-control"><a href="#安装package-control" class="headerlink" title="安装package control"></a>安装package control</h2><p>一.通过命令安装</p>
+<p>二.通过安装包安装<br>1.进入<code>https://packagecontrol.io/installation</code>下载安装文件<br>2.选择<code>Preferences -&gt; Browse Packages</code> 进入packages目录<br>3.切换到packages上一级目录(Sublime Text 3目录)，进入<code>Installd Packages</code>,并把<code>package control</code>文件粘贴进来<br>4.按住<code>ctrl+shift+p</code>调出命令面板，输入<code>pcip</code>,查看是否安装成功</p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>按住<code>ctrl+shift+p</code>调出命令面板，输入<code>install</code>，选择列表中的<code>install</code> Package选项，然后在出现的列表中搜索想要安装的插件</p>
+<h2 id="删除插件"><a href="#删除插件" class="headerlink" title="删除插件"></a>删除插件</h2><p>安装<code>ctrl+shift+p</code>调出命令面板，输入<code>remove</code>，选择列表中的<code>remove Package</code>选项，然后在出现的列表中选择要删除的插件。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/23/Sublime-Text3安装、删除、更新插件/" data-id="cjf3snj600009zppvsiuxweuc" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text/">sublime text</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-sublime-text不能安装插件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/sublime-text不能安装插件/" class="article-date">
+  <time datetime="2018-03-23T10:19:18.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/sublime-text/">sublime text</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/sublime-text不能安装插件/">sublime-text不能安装插件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用sublime text编辑器的package control安装插件时不能安装，提示<code>there are no packages  available for installation</code>的解决办法</p>
+<ol>
+<li><p>打开命令提示符，输入<code>ping sublime.wbond.Net</code>，查看ip地址</p>
+</li>
+<li><p>得到ip之后，开始修改hosts文件，hosts文件所在目录为<code>C:\Windows\System32\drivers\etc</code></p>
+</li>
+<li><p>在hosts文件中加入 <code>50.116.33.29       sublime.wbond.net</code></p>
+</li>
+<li><p>保存修改，重启sublime</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/23/sublime-text不能安装插件/" data-id="cjf3sn3kq0008zppvavk2pwct" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text/">sublime text</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-安装node-js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/安装node-js/" class="article-date">
+  <time datetime="2018-03-23T10:15:54.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/安装node-js/">安装node.js</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="通过nvm安装node-js"><a href="#通过nvm安装node-js" class="headerlink" title="通过nvm安装node.js"></a>通过nvm安装node.js</h3><ol>
+<li>下载安装nvm<br><a href="curl https://raw.github.com/creationix/nvm/master/install.sh | sh">通过curl方式安装</a><br><a href="wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh">通过wget方式安装</a></li>
+<li>安装node.js<br>安装完nvm,重启电脑，执行<code>nvm install stable</code>进行安装node</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/23/安装node-js/" data-id="cjf3siqkp0003zppv5qbyuu40" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nvm/">nvm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/apicloud/">apicloud</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/sublime-text/">sublime text</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试题/">面试题</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apicloud/">apicloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/">nvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text/">sublime text</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试题/">面试题</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/apicloud/" style="font-size: 10px;">apicloud</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/sublime-text/" style="font-size: 20px;">sublime text</a> <a href="/tags/面试题/" style="font-size: 16.67px;">面试题</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/23/Linux常用命令/">Linux常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/HTML5从入门到精通/">HTML5从入门到精通</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/apicloud学习笔记/">apicloud学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/git入门教程/">git入门教程</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/Sublime-Text3设置/">Sublime-Text3设置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 wangzherlf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

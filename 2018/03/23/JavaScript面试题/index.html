@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JavaScript面试题 | 学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.什么情况下会碰到跨域问题？有哪些解决方法？跨域问题是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源docuemnt,脚本，同源的意思是两个URL的域名、协议、端口要完全相同解决办法：script标签jsonp跨域，nginx反向代理，nodejs中间件代理跨域，后端在头部信息设置安全域名，后端在服务器上设置cors 2.如何判断一个变量是对象还是数组判读数组和对象的方法很多，其中">
+<meta name="keywords" content="JavaScript,面试题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript面试题">
+<meta property="og:url" content="http://yoursite.com/2018/03/23/JavaScript面试题/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="1.什么情况下会碰到跨域问题？有哪些解决方法？跨域问题是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源docuemnt,脚本，同源的意思是两个URL的域名、协议、端口要完全相同解决办法：script标签jsonp跨域，nginx反向代理，nodejs中间件代理跨域，后端在头部信息设置安全域名，后端在服务器上设置cors 2.如何判断一个变量是对象还是数组判读数组和对象的方法很多，其中">
+<meta property="og:updated_time" content="2018-03-23T05:08:31.220Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript面试题">
+<meta name="twitter:description" content="1.什么情况下会碰到跨域问题？有哪些解决方法？跨域问题是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源docuemnt,脚本，同源的意思是两个URL的域名、协议、端口要完全相同解决办法：script标签jsonp跨域，nginx反向代理，nodejs中间件代理跨域，后端在头部信息设置安全域名，后端在服务器上设置cors 2.如何判断一个变量是对象还是数组判读数组和对象的方法很多，其中">
+  
+    <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript面试题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/JavaScript面试题/" class="article-date">
+  <time datetime="2018-03-23T04:59:33.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/面试题/">面试题</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript面试题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-什么情况下会碰到跨域问题？有哪些解决方法？"><a href="#1-什么情况下会碰到跨域问题？有哪些解决方法？" class="headerlink" title="1.什么情况下会碰到跨域问题？有哪些解决方法？"></a>1.什么情况下会碰到跨域问题？有哪些解决方法？</h2><p>跨域问题是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源<code>docuemnt</code>,<code>脚本</code>，同源的意思是两个URL的域名、协议、端口要完全相同<br><strong>解决办法：</strong><br>script标签jsonp跨域，nginx反向代理，nodejs中间件代理跨域，后端在头部信息设置安全域名，后端在服务器上设置cors</p>
+<h2 id="2-如何判断一个变量是对象还是数组"><a href="#2-如何判断一个变量是对象还是数组" class="headerlink" title="2.如何判断一个变量是对象还是数组"></a>2.如何判断一个变量是对象还是数组</h2><p>判读数组和对象的方法很多，其中个<code>prototype.toString.call()</code>兼容性最好<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObjOrArr</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> type;</span><br><span class="line">    <span class="keyword">switch</span>(<span class="built_in">Object</span>.prototype.toString.call(value)) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'[object Array]'</span>:</span><br><span class="line">            type = <span class="string">'Array'</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'[object Object]'</span>:</span><br><span class="line">            type = <span class="string">'Object'</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            type = <span class="string">'other'</span>;   <span class="comment">// 不是数组也不是对象</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> type;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-定时器的执行顺序或机制"><a href="#3-定时器的执行顺序或机制" class="headerlink" title="3.定时器的执行顺序或机制"></a>3.定时器的执行顺序或机制</h2><p>因为js是单线程的，浏览器遇到<code>setTimeout</code>或<code>setInterval</code>会先执行当前的代码块，在此之前会把定时器推入浏览器的待执行事件队列里面，等到浏览器执行完当前代码之后会看一下事件队列里有没有任务，如果有才执行定时器的代码，所以即使把定时器的时间设置为0还是会先执行当前的一些代码。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> b = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> firstTest = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        b++;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">11111</span>);</span><br><span class="line">        <span class="keyword">if</span>(b &gt; <span class="number">100</span>) &#123;</span><br><span class="line">            clearInterval(firstTest);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> secondTest = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">2222</span>)</span><br><span class="line">    &#125;, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>, len = <span class="number">10000</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'aaaaaaaa'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">先执行<span class="number">10000</span>次遍历，然后执行firstTest,然后再执行secondTest,然后再执行firstTest</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-ES5的继承和ES6的继承有什么区别？"><a href="#4-ES5的继承和ES6的继承有什么区别？" class="headerlink" title="4.ES5的继承和ES6的继承有什么区别？"></a>4.ES5的继承和ES6的继承有什么区别？</h2><p>ES5的继承通过prototype或构造函数机制来实现。ES5的继承实质上是先创建子类的实例对象，然后再将父类的方法添加到this上</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/23/JavaScript面试题/" data-id="cjf3h7wii000b58pv9e8g0o0a" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试题/">面试题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/23/HTML面试题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          HTML面试题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/23/CSS面试题/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">CSS面试题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/apicloud/">apicloud</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/sublime-text/">sublime text</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试题/">面试题</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apicloud/">apicloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/">nvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text/">sublime text</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试题/">面试题</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/apicloud/" style="font-size: 10px;">apicloud</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/sublime-text/" style="font-size: 20px;">sublime text</a> <a href="/tags/面试题/" style="font-size: 16.67px;">面试题</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/23/Linux常用命令/">Linux常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/HTML5从入门到精通/">HTML5从入门到精通</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/apicloud学习笔记/">apicloud学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/git入门教程/">git入门教程</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/Sublime-Text3设置/">Sublime-Text3设置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 wangzherlf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

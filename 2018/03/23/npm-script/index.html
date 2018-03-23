@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>npm-script | 学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="npm init通过执行npm init会创建一个package.json文件创建的过程需要确认如下信息123456789package name       #包的名称(默认以文件夹名称作为包的名称)varsion            #包的版本号description        #包的描述entry point        #包的入口文件(main:入口文件)test command">
+<meta name="keywords" content="node.js,npm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="npm-script">
+<meta property="og:url" content="http://yoursite.com/2018/03/23/npm-script/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="npm init通过执行npm init会创建一个package.json文件创建的过程需要确认如下信息123456789package name       #包的名称(默认以文件夹名称作为包的名称)varsion            #包的版本号description        #包的描述entry point        #包的入口文件(main:入口文件)test command">
+<meta property="og:updated_time" content="2018-03-23T09:47:40.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="npm-script">
+<meta name="twitter:description" content="npm init通过执行npm init会创建一个package.json文件创建的过程需要确认如下信息123456789package name       #包的名称(默认以文件夹名称作为包的名称)varsion            #包的版本号description        #包的描述entry point        #包的入口文件(main:入口文件)test command">
+  
+    <link rel="alternate" href="/atom.xml" title="学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">学习笔记</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-npm-script" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/npm-script/" class="article-date">
+  <time datetime="2018-03-23T09:38:42.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      npm-script
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="npm-init"><a href="#npm-init" class="headerlink" title="npm init"></a>npm init</h2><p>通过执行<code>npm init</code>会创建一个package.json文件<br>创建的过程需要确认如下信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package name       <span class="comment">#包的名称(默认以文件夹名称作为包的名称)</span></span><br><span class="line">varsion            <span class="comment">#包的版本号</span></span><br><span class="line">description        <span class="comment">#包的描述</span></span><br><span class="line">entry point        <span class="comment">#包的入口文件(main:入口文件)</span></span><br><span class="line"><span class="built_in">test</span> <span class="built_in">command</span>       <span class="comment">#test命令(scripts: &#123;test: test命令&#125;)</span></span><br><span class="line">git repository     <span class="comment">#git 仓库(repository: &#123; type: git类别, url: git地址 &#125;)</span></span><br><span class="line">keywords           <span class="comment">#关键词</span></span><br><span class="line">author             <span class="comment">#作者</span></span><br><span class="line">license            <span class="comment">#授权协议</span></span><br></pre></td></tr></table></figure></p>
+<p>也可以通过<code>npm init -f</code>快速创建package.json文件。此命令会跳过所有问答，使用npm配置文件中的默认值创建。<br>npm的配置文件存储在<code>~/.npmrc</code>中</p>
+<h2 id="npm-配置"><a href="#npm-配置" class="headerlink" title="npm 配置"></a>npm 配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm config set init.author.name &quot;wangzherlf&quot;</span><br><span class="line">npm config set init.author.url  &quot;https://github.com/wangzherlf&quot;</span><br><span class="line">npm config set init.license     &quot;MIT&quot;</span><br><span class="line">npm config set init.scripts.start  &quot;node index.js&quot;</span><br><span class="line">npm config set init.scripts.lint   &quot;eslint **.js&quot;</span><br><span class="line">npm config set init.scripts.test   &quot;mocha tests/&quot;</span><br><span class="line">npm config set init.version &quot;0.0.1&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><code>npm help json</code>  查看package.json帮助文档<br><code>npm bugs packageName</code>  查看指定项目的问题反馈<br><code>npm owner ls test</code><br><code>npm run name</code>   是<code>npm run-script</code>的缩写，npm不需要run的命令有start,stop,test,restart</p>
+<h2 id="代码风格检查"><a href="#代码风格检查" class="headerlink" title="代码风格检查"></a>代码风格检查</h2><ol>
+<li><p>安装代码风格检查工具eslint</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i eslint -D   // -D 表示安装到开发依赖中</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建eslint配置文件 <code>.eslintrc.js</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./node_modules/.bin/eslint --init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>eslint使用<br>创建好eslint配置文件后，就可以使用eslint进行代码风格检查了，使用方法为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./node_modules/.bin/eslint index.js  <span class="comment"># 检查index.js的语法风格</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>也可以在package.json中配置eslint.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scripts: &#123;</span><br><span class="line">    eslint: <span class="string">'eslint *.js'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用<code>npm run eslint</code>命令进行代码检查</p>
+<h3 id="可以对多组代码风格进行串行或并行检查"><a href="#可以对多组代码风格进行串行或并行检查" class="headerlink" title="可以对多组代码风格进行串行或并行检查"></a>可以对多组代码风格进行串行或并行检查</h3><h4 id="串行检查"><a href="#串行检查" class="headerlink" title="串行检查"></a>串行检查</h4><p>串行检查使用<code>&amp;&amp;</code>符号将多个命令串行执行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"lint:js"</span>: <span class="string">"eslint *.js"</span>,</span><br><span class="line">    <span class="string">"lint:css"</span>: <span class="string">"stylelint *.less"</span>,</span><br><span class="line">    <span class="string">"lint:json"</span>: <span class="string">"jsonlint --quite *.json"</span>,</span><br><span class="line">    <span class="string">"lint:markdown"</span>: <span class="string">"markdownlint --config .markdownlist.json *.md"</span>,</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"npm run lint:js &amp;&amp; npm run lint:css &amp;&amp; mocha tests/"</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"chai"</span>: <span class="string">"*"</span>,</span><br><span class="line">    <span class="string">"eslint"</span>: <span class="string">"*"</span>,</span><br><span class="line">    <span class="string">"jsonlint"</span>: <span class="string">"*"</span>,</span><br><span class="line">    <span class="string">"markdownlint-cli"</span>: <span class="string">"*"</span>,</span><br><span class="line">    <span class="string">"mocha"</span>: <span class="string">"*"</span>,</span><br><span class="line">    <span class="string">"stylelint"</span>: <span class="string">"*"</span>,</span><br><span class="line">    <span class="string">"stylelint-config-standard"</span>: <span class="string">"*"</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="并行检查"><a href="#并行检查" class="headerlink" title="并行检查"></a>并行检查</h4><p>并行检查使用<code>&amp;</code>符号将多个命令并行执行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"test"</span>: <span class="string">"npm run lint:js &amp; npm run lint:css &amp; mocha tests/"</span></span><br></pre></td></tr></table></figure></p>
+<p>使用’mocha’实时监听测试用例时，只能使用并行的方式<code>mocha -w tests/ &amp; wait</code></p>
+<h4 id="串并混用"><a href="#串并混用" class="headerlink" title="串并混用"></a>串并混用</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"test"</span>: <span class="string">"npm run lint:js &amp; npm run lint:css &amp;&amp; mocha tests/"</span></span><br></pre></td></tr></table></figure>
+<p>可以使用<code>npm-run-all</code>同时执行全部命令<br><code>yarn add npm-run-all -D</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"test"</span>: <span class="string">"npm-run-all lint:js lint:css lint:json mocha"</span>   <span class="comment">//串行运行</span></span><br><span class="line"><span class="string">"test"</span>: <span class="string">"npm-run-all --parallel lint:js lint:css mocha"</span>  <span class="comment">//并行运行</span></span><br><span class="line"><span class="string">"test"</span>: <span class="string">"npm-run-all --parallel lint:* mocha"</span>            <span class="comment">// 简写</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/23/npm-script/" data-id="cjf3r6wej0002skpvtjigycb3" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/23/安装node-js/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          安装node.js
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/23/使用hexo搭建博客教程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">使用hexo搭建博客教程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/apicloud/">apicloud</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/sublime-text/">sublime text</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试题/">面试题</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apicloud/">apicloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/">nvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text/">sublime text</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试题/">面试题</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/apicloud/" style="font-size: 10px;">apicloud</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/sublime-text/" style="font-size: 20px;">sublime text</a> <a href="/tags/面试题/" style="font-size: 16.67px;">面试题</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/23/Linux常用命令/">Linux常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/HTML5从入门到精通/">HTML5从入门到精通</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/apicloud学习笔记/">apicloud学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/git入门教程/">git入门教程</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/Sublime-Text3设置/">Sublime-Text3设置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 wangzherlf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
