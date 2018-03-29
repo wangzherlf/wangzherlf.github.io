@@ -61,6 +61,460 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ES2015" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/29/ES2015/" class="article-date">
+  <time datetime="2018-03-29T02:01:06.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ES6/">ES6</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/ES2015/">ES2015</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Underscore.js  LoDash</p>
+<h1 id="ES015"><a href="#ES015" class="headerlink" title="ES015"></a>ES015</h1><p>ECMAScript6 简称ES6,也叫ECMAScript Harmony或ES2015</p>
+<p>ECMAScript是欧洲计算机制造商协会(European Computer Manufacturers Association ECMA)以JavaScript为基础制定的一种脚本语言标准,其中包含了ECMA-262和ECMA-402等规范。</p>
+<p>ECMA-262标准中规定了：语法，类型，语句，关键字，保留字，操作符，对象，原生API.<br>ECMAScript则是对实现这些规定的语言的描述。</p>
+<h2 id="ECMAScript版本"><a href="#ECMAScript版本" class="headerlink" title="ECMAScript版本"></a>ECMAScript版本</h2><p>ECMA-262                      1997.07<br>ECMA-262 Edition 2            1998.08<br>ECMA-262 Edition 3            1999.12<br>ECMA-262 Edition 5            2009.12<br>ECMA-262 2015 Edition 6       2015.06<br>ECMA-262 2016 Edition 7       2016.07</p>
+<h2 id="工程优势"><a href="#工程优势" class="headerlink" title="工程优势"></a>工程优势</h2><p>1.模块化<br>模块化主要是解决依赖问题</p>
+<p>非原生模块化标准解决方案：CommonJS,AMD,CMD,UMD</p>
+<p>ES6增加了原生模块化标准解决方案<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import fs from &apos;fs&apos;;</span><br><span class="line">let Module = &#123;...&#125;</span><br><span class="line">export default Module</span><br></pre></td></tr></table></figure></p>
+<p>ES6模块化中增加了模块内容选择性引入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// module_a.js</span><br><span class="line">export function add(...args) &#123; return args.reduce((a,b) =&gt; a+b); &#125;</span><br><span class="line">export function substract(a,b) &#123; return a - b; &#125;</span><br><span class="line"></span><br><span class="line">// main.js</span><br><span class="line">import &#123; add &#125; as math from &apos;module_a&apos;;  // 只引入了module_a模块中的add函数</span><br><span class="line">let sum = add(1,2,3);</span><br></pre></td></tr></table></figure></p>
+<p>Rollup和webpack2可以利用ES6中模块化机制来最大程度地精简Javascript应用的体积，他们通过分析JavaScript的抽象树语法、依赖检查等步骤，建立一个“对象依赖树”，并借此将所有被引用或使用的对象抽出，合成最小可用程序集，供生产环境使用。</p>
+<p>2.模块化与组件化结合<br>组件化开发所重视的是组件之间的非耦合关系和组件的可重用性，而组件之间也可以存在依赖性，可利用模块化机制来实现组件化开发。</p>
+<p>3.内存安全<br>ES6引入了const和let语句解决了ECMAScript只有变量而没有常量的设计很容易导致内存不安全、数据丢失或被恶意篡改。</p>
+<p>const具有常量的能力，let修复了以前var因为代码习惯不佳导致的代码作用域混乱等问题，同时实现了块作用域。</p>
+<p>const可以实现变量名与内存地址的强绑定，让变量不会因为除了定义语句和删除语句以外的代码而丢失内存地址的绑定，从而保证了变量与内存之间的安全性。</p>
+<h2 id="ES6的12种新特性"><a href="#ES6的12种新特性" class="headerlink" title="ES6的12种新特性"></a>ES6的12种新特性</h2><ul>
+<li>let、const和块级作用域</li>
+<li>箭头函数(Arrow Function)</li>
+<li>模板字符串(Template String)</li>
+<li>对象字面量扩展语法(Enhanced Object Literals)</li>
+<li>表达式解构 (Destructuring)</li>
+<li>函数参数表达、传参</li>
+<li>新的数据结构</li>
+<li>类语法 (Classes)</li>
+<li>生成器 (Generator)</li>
+<li>Promise</li>
+<li>代码模块化</li>
+<li>Symbol</li>
+<li>Proxy</li>
+</ul>
+<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>JavaScript没有块级作用域</p>
+<h4 id="let-定义变量"><a href="#let-定义变量" class="headerlink" title="let 定义变量"></a>let 定义变量</h4><p><strong>let与var的异同</strong><br>let可以定义变量，可以被释放，可以重复定义检查，可以被用于块状作用域，不可以被提升<br>var可以定义变量，可以被释放，不可以重复定义检查，不可以被用于块状作用域，可以被提升<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 重复定义检查</span><br><span class="line">// var</span><br><span class="line">var foo = &apos;bar&apos;;</span><br><span class="line">var foo = &apos;abc&apos;   // abc</span><br><span class="line"></span><br><span class="line">// let</span><br><span class="line">let bar = &apos;foot&apos;;</span><br><span class="line">let bar = &apos;def&apos;;   // Uncaught SyntaxError: Identifier &apos;bar&apos; has already been declared</span><br></pre></td></tr></table></figure></p>
+<p>var 可以让同一个变量名在同一个作用域里被定义多次</p>
+<h4 id="const-定义常量"><a href="#const-定义常量" class="headerlink" title="const 定义常量"></a>const 定义常量</h4><p>变量与内存之间的关系由三部分组成：变量名，内存绑定，内存(内存地址)<br>ECMAScript在对变量的引用进行读取时，会从该变量当前所对应的内存地址所指向的内存空间中读取内容。当用户改变变量的值时，引擎会重新从内存中分配一个新的内存空间以存储新的值，并将新的内存地址与变量进行绑定。<br>const的原理是在变量名与内存地址之间建立不可变的绑定，当后面的程序尝试申请新的内存空间时，引擎便会抛出错误。</p>
+<p>const的实现原理只限于创造一个不可变的内存绑定，而在某些情况下<strong>并非值不可变</strong><br>对于字符串、数值、布尔值、undefined这些类型只是占用了一组内存空间，这些值在内存空间中是连续的、不可拆分的。<br>对于对象、数组这种稀疏的引用类型值，在内存空间中可能会拆分成若干个段落。</p>
+<p>虽然google v8引擎对javascript运行时的内存管理中使用的是堆内存而不是栈内存，但因为对象的属性是可变的，所以为了最快地进行内存调度，当变量的属性被改变或添加了新的属性时，都需要重新计算内存地址偏移量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const foo = &#123;   // const将foo与内存空间绑定起来并锁死</span><br><span class="line">    a: 1        // 内存偏移值即foo的属性并没有得到强绑定</span><br><span class="line">&#125;</span><br><span class="line">// 使用const定义了对象常量foo,foo不能修改，但foo的属性没有强绑定，仍然可以修改</span><br><span class="line">foo.a = 2;    </span><br><span class="line">foo.b = 3;</span><br></pre></td></tr></table></figure></p>
+<p>const所创建的内存绑定只绑定一处，所以默认情况下对象这种由若干个空间片段组成的值并不会全部被绑定。而对于字符串，数值，布尔值，undefined等类型因为只使用了一段内存空间，所以通过const定义的它们是天生的值不可变。</p>
+<p>使用ES5中的Object.freeze()方法，可以获得一个首层属性不可变的对象。<br>Object.freeze()方法可以冻结一个对象，冻结指不能向这个对象添加新的属性，不能修改、删除其已有属性及不能修改该对象已有属性的可枚举性、可配置性、可写性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const obj1 = Object.freeze(&#123;</span><br><span class="line">    a: 1,</span><br><span class="line">    b: 2</span><br><span class="line">&#125;);</span><br><span class="line">obj1.a = 2;  // TypeError: cannot assign to read only property &apos;a&apos; of object</span><br></pre></td></tr></table></figure></p>
+<p>如果首层属性中存在对象，那么默认情况下首层以下对象依然可以被改变，解决方法为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 深度不可变</span><br><span class="line">Object.deepFreeze = function(obj) &#123;</span><br><span class="line">    var propNames = Object.getOwnPropertyNames(obj);</span><br><span class="line">    propNames.forEach(function(name) &#123;</span><br><span class="line">        var prop = obj[name];</span><br><span class="line">        if(typeof prop == &apos;object&apos; &amp;&amp; prop != null) &#123;</span><br><span class="line">            Object.deepFreeze(prop);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    return Object.freeze(obj);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const obj3 = Object.deepFreeze(&#123;   // 现在通过const定义的对象就是深度不可变对象了</span><br><span class="line">    a: &#123;</span><br><span class="line">        b: 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">obj3.a.c = 2;   // TypeError</span><br></pre></td></tr></table></figure></p>
+<p>const与块级作用域<br>除了let会产生块级作用域以外，const同样可以产生块级作用域。其定义的常量同样遵循变量在作用域中的生命周期。可以定义一些只针对某个作用域或某个函数、算法内部的常量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">const JSONP = (function() &#123;</span><br><span class="line">    const global = window;   // 定义局部的global</span><br><span class="line"></span><br><span class="line">    const defaultOptions = Object.freeze(&#123;   // 定义不可变对象，对象属性的子属性是可变的</span><br><span class="line">        data: &#123;&#125;,</span><br><span class="line">        callback: (data) =&gt; &#123;&#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    function safeEscape(str) &#123;</span><br><span class="line">        return encodeURIComponent(str.toString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return (root, opts = defaultOptions) =&gt; &#123;</span><br><span class="line">        let url = root.trim().replace(/\?$/,&apos;&apos;) + &apos;?&apos;;</span><br><span class="line">        </span><br><span class="line">        const keys = Object.keys(opts.data);</span><br><span class="line">        </span><br><span class="line">        for(const key of keys) &#123;</span><br><span class="line">            url += `$&#123;safeEscape(key)&#125;=$&#123;safeEscape(opts.data[key])&#125;&amp;`</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        const callbackName = `json$&#123;Math.random().toString(32).substr(2)&#125;`</span><br><span class="line"></span><br><span class="line">        global[callbackName] = function(data) &#123;</span><br><span class="line">            delete global[callbackName];</span><br><span class="line">            opts.callback.call(JSONP,data)</span><br><span class="line">        &#125; </span><br><span class="line"></span><br><span class="line">        url += `jsoncallback=$&#123;callbackName&#125;`;</span><br><span class="line"></span><br><span class="line">        const script = document.createElement(&apos;script&apos;);</span><br><span class="line">        script.src = url;</span><br><span class="line"></span><br><span class="line">        document.getElementsByTagName(&apos;body&apos;)[0].appendChild(script);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line">JSONP(&apos;http://api.flickr.com/services/feeds/photos_public.gne&apos;, &#123;</span><br><span class="line">    data: &#123;</span><br><span class="line">        tags: &apos;cat&apos;,</span><br><span class="line">        tagmode: &apos;any&apos;,</span><br><span class="line">        format: &apos;json&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    callback(data) &#123;</span><br><span class="line">        console.log(data)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="变量的生命周期"><a href="#变量的生命周期" class="headerlink" title="变量的生命周期"></a>变量的生命周期</h4><p>在ECMAScript中，一个变量(常量)的生命周期模式是固定的，由两种因素决定，分别是作用域和对其的引用。</p>
+<p>绝大部分ECMAScript运行引擎对垃圾数据的收集方式都是基于变量(常量)的引用进行统计，当一个变量的引用被全部解除时，引擎便会将其认定为应该被清除的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function() &#123;</span><br><span class="line">    var foo = &apos;A&apos;;</span><br><span class="line">&#125;)()</span><br><span class="line">foo;   // undefined   函数运行后，变量的引用就被清除了</span><br></pre></td></tr></table></figure></p>
+<p>如果延长变量的生命周期，最常用的方法是闭包(closure).因为变量的生命周期由对其的引用所决定，而闭包的原理便是利用高阶函数来产生能够穿透作用域的引用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function outter() &#123;</span><br><span class="line">    const innerVariable = &apos;foo&apos;;</span><br><span class="line">    return function() &#123;   // 通过闭包延长变量作用域</span><br><span class="line">        return innerVariable;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">const fn = outter();</span><br><span class="line">fn();   // foo   变量的作用域被延长了</span><br></pre></td></tr></table></figure></p>
+<p>ECMAScript中，变量(常量)的生命周期是从程序进入定义语句所在的作用域开始，即便是定义语句之前。<br>1.ECMAScript引擎在进入一个作用域时，会先扫描这个作用域内的变量(常量)定义语句(var,let,const),然后在这个作用域内为扫描得到的变量名做准备，在当前作用域中被扫描到的变量名都会进入未声明阶段(undeclared)<br>2.进入声明语句时，var foo,即前半句是声明部分(declaration)，用于在ECMAScript引擎中产生一个变量名，但此时的变量名没有对应的绑定和内存空间<br>3.为变量赋值语句，引擎执行至此即为该变量的赋值部分(Assignment),计算将要赋予变量名的值的物理长度(内存空间占用大小)，向系统申请相应大小的内存空间，然后将数据存储进去，并在变量名和内存之间建立绑定关系，此时变量(常量)才得到相应的值。<br>4.当前作用域中的语句被执行完毕，引擎便会检查该作用域中被定义的变量(常量)的被引用情况，如果引用已被全部解除，引擎便会认为其该被删除。<br>5.运行引擎会不断检查存在于运行时(runtime)中的变量(常量)的被引用情况，并重复第4步，直至程序结束</p>
+<p>ES6中，对于let和const的变量提升，引擎会视为错误行为，并抛出错误。ES6标准中(一般情况为严格模式)不允许变量(常量)在被定义前被其他语句所读取，以免产生逻辑性错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);  // undefined</span><br><span class="line">console.log(b);  // ReferenceError</span><br><span class="line">console.log(c);  // ReferenceError</span><br><span class="line">var a = 1;</span><br><span class="line">let b = 2;</span><br><span class="line">const c = 3;</span><br></pre></td></tr></table></figure></p>
+<p>ES6中，let的作用是为了代替var<br>从工程化角度来说，ES6中应遵循以下三条原则：<br>1.一般情况下，使用const来定义值的存储容器(常量)<br>2.只有在容器明确地被确定将会被改变时才使用let来定义(变量)<br>3.不再使用var</p>
+<h4 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h4><p>ES6中引入了for…of循环，用于替代for…in循环<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const arr = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;];</span><br><span class="line">for(const item of arr) &#123;</span><br><span class="line">    item;  // &apos;a&apos;,&apos;b&apos;,&apos;c&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const arr1 = [</span><br><span class="line">    &#123;name: &apos;zs&apos;, age: 30, job: &apos;teacher&apos;&#125;,</span><br><span class="line">    &#123;name: &apos;ls&apos;, age: 20, job: &apos;student&apos;&#125;</span><br><span class="line">];</span><br><span class="line">// 配合解构(Destructuring)特性，处理JSON数据</span><br><span class="line">for(const &#123; name, job &#125; of arr1) &#123;</span><br><span class="line">    console.log(`$&#123;name&#125;,$&#123;job&#125;`)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ES5中引入了Array.forEach方法来代替for循环，Array.forEach方法的特点是函数式编程和自带闭包，以解决缺乏块级作用域的问题；但forEach无法像for、while等循环语句一样被break等控制语句终止。<br>forEach方法需要传入一个回调函数来接收循环的每个循环元素并作为循环体来执行。这个回调函数会被传入三个参数，分别为当前值，当前值得下标和循环数组自身</p>
+<p>ES6中数组类型增加了一个entries的方法，这个方法的作用是返回对应的数组中每一个元素与其下标配对的新数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const arr1 = [</span><br><span class="line">    &#123;name: &apos;zs&apos;, age: 30, job: &apos;teacher&apos;&#125;,</span><br><span class="line">    &#123;name: &apos;ls&apos;, age: 20, job: &apos;student&apos;&#125;</span><br><span class="line">];</span><br><span class="line">console.log(arr1.entries()) // Array Iterator [[0,&#123;name: &apos;zs&apos;, age: 30, job: &apos;teacher&apos;&#125;],[1,&#123;name: &apos;ls&apos;, age: 20, job: &apos;student&apos;&#125;]]</span><br><span class="line"></span><br><span class="line">// entries方法需要与for-of循环配合</span><br><span class="line">for(const [ index, &#123; name, job &#125; ] of arr1.entries()) &#123;  // entries与for-of和解构配合</span><br><span class="line">    console.log(`$&#123;index&#125;, $&#123;name&#125;, $&#123;job&#125;`)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="箭头函数-Arrow-Function"><a href="#箭头函数-Arrow-Function" class="headerlink" title="箭头函数(Arrow Function)"></a>箭头函数(Arrow Function)</h2><p>箭头函数有四种使用方法<br>1.单一参数的单行箭头函数<br>arg =&gt; statement<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const fn = foo =&gt; `$&#123;foo&#125; world`;</span><br></pre></td></tr></table></figure></p>
+<p>2.多参数的单行箭头函数<br>(arg1, arg2) =&gt; statement<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const arr1 = arr.sort((a,b) =&gt; a.length &lt; b.length);</span><br></pre></td></tr></table></figure></p>
+<p>3.多行箭头函数<br>arg =&gt; { statement }  // 单一参数<br>(arg1, arg2) =&gt; { statement }  // 多参数<br>4.无参数箭头函数<br>() =&gt; statement</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const name = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;,&apos;f&apos;];</span><br><span class="line">const newSt = name.map((name, index) =&gt; (&#123; index,name &#125;))</span><br><span class="line">                  .filter(man =&gt; man.index % 2 == 0)</span><br><span class="line">                  .map(man =&gt; [ man.name ])</span><br><span class="line">                  .reduce((a,b) =&gt; a.concat(b))</span><br><span class="line">console.log(newSt)</span><br></pre></td></tr></table></figure>
+<h3 id="this穿透"><a href="#this穿透" class="headerlink" title="this穿透"></a>this穿透</h3><p>箭头函数用于将函数内部的this延伸至上一层作用域中，即上一层的上下文会穿透到内层的箭头函数中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;</span><br><span class="line">    title: &apos;hello world&apos;,</span><br><span class="line">    foo() &#123;</span><br><span class="line">        // this</span><br><span class="line">        const bar = () =&gt; this.title;   // this被穿透为上层作用域的this</span><br><span class="line">        return bar;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>箭头函数对上下文的绑定是强制性的，无法通过apply或call方法改变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const a = &#123;</span><br><span class="line">    dam: &apos;hei&apos;,</span><br><span class="line">    init() &#123;</span><br><span class="line">        this.bar = () =&gt; this.dam;</span><br><span class="line">    &#125;,</span><br><span class="line">    foo() &#123;</span><br><span class="line">        return this.dam;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">const b = &#123;</span><br><span class="line">    dam: &apos;haha&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a.init()</span><br><span class="line"></span><br><span class="line">a.foo()   // hei</span><br><span class="line">a.foo.bind(b).call(a)   // haha</span><br><span class="line">a.bar.call(b)          // hei</span><br></pre></td></tr></table></figure></p>
+<p>因为箭头函数绑定上下文的特性，故不能随意在顶层作用域使用箭头函数，以防止出现错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;</span><br><span class="line">    msg: &apos;ping&apos;,</span><br><span class="line">    ping: () =&gt; this.msg      // undefined</span><br><span class="line">&#125;</span><br><span class="line">obj.ping();  // undefined</span><br><span class="line">var msg = &apos;bang&apos;;</span><br><span class="line">obj.ping();  // bang</span><br></pre></td></tr></table></figure></p>
+<p>箭头函数中没有arguments,callee甚至caller等对象</p>
+<p>如果使用单行箭头函数直接返回一个对象字面量，需要使用一个括号包裹该对象字面量，而不要直接使用大括号，否则ECMAScript解析引擎会将其解析为一个多行箭头函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const ids = [1, 2, 3];</span><br><span class="line">const users = ids.map(id =&gt; &#123;id: id&#125;)  // [undefined, undefined, undefined]</span><br><span class="line">const users1 = ids.map(id =&gt; (&#123; id: id &#125;));  // [&#123;id: 1&#125;,&#123;id: 2&#125;,&#123;id: 3&#125;]</span><br></pre></td></tr></table></figure></p>
+<h2 id="模板字符串-Template-String"><a href="#模板字符串-Template-String" class="headerlink" title="模板字符串(Template String)"></a>模板字符串(Template String)</h2><p>模板字符串语法使用反勾号(backtick)<br>模板字符串支持字符串元素注入 <code>${variable}</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const void0 = void(0);</span><br><span class="line">const obj = &#123; foo: &apos;bar&apos; &#125;</span><br><span class="line">const err = new Error(&apos;error&apos;)</span><br><span class="line">const regexp = /foobar/</span><br><span class="line">$&#123;void0&#125;    // undefined</span><br><span class="line">$&#123;obj&#125;     // [object Object]</span><br><span class="line">$&#123;err&#125;    //  Error: error</span><br><span class="line">$&#123;regexp&#125;   // /footbar/</span><br></pre></td></tr></table></figure></p>
+<p>模板字符串支持换行<br>多行模板字符串会在每行的最后添加一个<code>\n</code>字面量，相当于使用LF换行符。<br>所以读取多行字符串的长度时，除了最后一行外，每一行的长度都会加1，即增加了<code>\n</code>的长度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const str = `a</span><br><span class="line">b</span><br><span class="line">c`</span><br><span class="line">str.length   // 5</span><br></pre></td></tr></table></figure></p>
+<p>CRLF和LF是目前计算机科学中最常用的两种换行符的格式。<br>CRLF换行符(\r\n)主要以windows操作系统为中心的生态圈使用<br>LF换行符(\n)主要以linux/unix操作系统为中心的生态圈使用</p>
+<h2 id="对象字面量扩展语法-Enhanced-Object-Literals"><a href="#对象字面量扩展语法-Enhanced-Object-Literals" class="headerlink" title="对象字面量扩展语法(Enhanced Object Literals)"></a>对象字面量扩展语法(Enhanced Object Literals)</h2><h3 id="函数类属性省略语法"><a href="#函数类属性省略语法" class="headerlink" title="函数类属性省略语法"></a>函数类属性省略语法</h3><p>对象字面量中方法属性可以省略function<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;</span><br><span class="line">    foo: function() &#123; ... &#125;,  // es5写法</span><br><span class="line">    bar() &#123; ... &#125;             // es6写法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="支持proto注入"><a href="#支持proto注入" class="headerlink" title="支持proto注入"></a>支持<strong>proto</strong>注入</h3><p>ES6支持直接向对象字面量注入<strong>proto</strong>的功能，这样开发者可以得到更高的对象操作权限，从而更加灵活地创建和操作对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 向字面量注入__proto__,使其直接成为指定类的一个实例，而不需另外创建一个类来实现继承</span><br><span class="line">import &#123; EventEmitter &#125; from &apos;events&apos;;</span><br><span class="line"></span><br><span class="line">const machine = &#123;</span><br><span class="line">    __proto__: new EventEmitter(),</span><br><span class="line">    method() &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">machine   // EventEmitter &#123;&#125;</span><br><span class="line">machine instanceof EventEmitter     // true</span><br><span class="line"></span><br><span class="line">machine.on(&apos;event&apos;, msg =&gt; console.log(`received message: $&#123;msg&#125;`));  // 可以直接用machine定义自定义事件</span><br><span class="line">machine.emit(&apos;event&apos;, &apos;hello world&apos;);</span><br><span class="line">machine.method()  //machine的原有方法也可以直接使用</span><br></pre></td></tr></table></figure></p>
+<h3 id="可动态计算的属性名"><a href="#可动态计算的属性名" class="headerlink" title="可动态计算的属性名"></a>可动态计算的属性名</h3><p>ES6允许使用一个表达式来表示属性名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const prefix = &apos;es&apos;;</span><br><span class="line">const obj = &#123;</span><br><span class="line">    [prefix + &apos;hello&apos;]: &apos;footbar&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;</span><br><span class="line">    a: 0,</span><br><span class="line">    b: 1,</span><br><span class="line">    [Symbol.iterator]() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            next() &#123;</span><br><span class="line">                [obj.a, obj.b] = [obj.b, obj.a + obj.b];</span><br><span class="line">                return &#123; done: false, value: obj.b &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for(const n of obj) &#123;</span><br><span class="line">    console.log(n)</span><br><span class="line">    if(n &gt; 100) break;</span><br><span class="line">    process.stdout.write(n.toString() + &apos; &apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="将属性名定义省略"><a href="#将属性名定义省略" class="headerlink" title="将属性名定义省略"></a>将属性名定义省略</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const foo = 12;</span><br><span class="line">const bar = () =&gt; foo;</span><br><span class="line"></span><br><span class="line">cosnt obj = &#123;foo, bar&#125;   // 将字面量中的属性名省略</span><br></pre></td></tr></table></figure>
+<h2 id="表达式解构-Destructuring"><a href="#表达式解构-Destructuring" class="headerlink" title="表达式解构(Destructuring)"></a>表达式解构(Destructuring)</h2><p>实现了函数多返回值<br>在ES6之前使用对象字面量和数组来模拟函数多返回值，在ES6中同样可以使用类似的语法来实现函数多返回值。</p>
+<h3 id="使用对象作为返回载体-带有标签的多返回值"><a href="#使用对象作为返回载体-带有标签的多返回值" class="headerlink" title="使用对象作为返回载体(带有标签的多返回值)"></a>使用对象作为返回载体(带有标签的多返回值)</h3><p>语法：{arg1, arg2} = { arg1: value1, arg2: value2 }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function getState() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        error: null,</span><br><span class="line">        logined: true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">const &#123; error, logined &#125; = getState();</span><br><span class="line">if(error) &#123;....&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用数组作为返回载体"><a href="#使用数组作为返回载体" class="headerlink" title="使用数组作为返回载体"></a>使用数组作为返回载体</h3><p>使用数组作为返回载体与使用对象作为返回载体的区别是：数组需要让被赋予的变量(常量)名按照数组的顺序获得值<br>语法：[arg1, arg2] = [value1, value2]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const [foo, bar] = [1, 2];</span><br><span class="line">console.log(foo, bar);</span><br></pre></td></tr></table></figure></p>
+<p>如果希望跳过数组中某些元素，可以通过空开一个元素的方式实现<br>语法：[arg1, ,arg2] = [value1, value2, value3]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const [foo, , bar] = [1,2,3];  // 跳过第二项</span><br><span class="line">console.log(foo, bar)</span><br></pre></td></tr></table></figure></p>
+<p>如果希望能在获取指定位置的元素以外，也可以不定项地获取后续的元素，可以用<code>...</code>语句来实现<br>语法：[arg1, arg2, …restArgs] = [value1, value2, value3, value4]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const [a, b, ...rest] = [1,2,3,4,5];</span><br><span class="line">console.log(a,b)</span><br><span class="line">console.log(rest)</span><br></pre></td></tr></table></figure></p>
+<p>在Promise的标准定义中，Promise是只允许返回一个值的，但是在很多情况下，需要Promise的onFulfilled传递多余一个的返回值，因此可以使用解构特性来实现。<br>一般可以使用数组作为载体，好处是执行Promise.resovle方法时的语法比较简单。需要注意的是Promise.then()方法中传入的是一个带有解构参数的箭头函数时，解构参数外必须有一个括号包裹，否则会出错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function fetchData() &#123;</span><br><span class="line">    return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        resolve([&apos;foo&apos;,&apos;bar&apos;])</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">fetchData().then(([v1,v2]) =&gt; &#123;    // [v1,v2]外必须使用()包裹</span><br><span class="line">    console.log(v1,v2)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>如果参数过多但在某个场景下不需要全部参数，或者文档约定不完善的情况下，使用对象作为传递载体更适合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function fetchData() &#123;</span><br><span class="line">    return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        resolve(&#123;</span><br><span class="line">            code: 200,</span><br><span class="line">            message: &apos;ok&apos;,</span><br><span class="line">            data: [&apos;foo&apos;,&apos;bar&apos;]</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">fetchData().then((&#123;data&#125;) =&gt; cosole.log(data))</span><br></pre></td></tr></table></figure></p>
+<h3 id="swap-变量值交换"><a href="#swap-变量值交换" class="headerlink" title="swap(变量值交换)"></a>swap(变量值交换)</h3><p>变量交换表示定义一个函数或一种语法来交换两个变量的值。ES5中一般使用一个临时中间变量来实现swap,在ES6中可以使用解构来实现swap<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// es5</span><br><span class="line">function swap(a,b) &#123;</span><br><span class="line">    var tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = tmp;</span><br><span class="line">&#125;</span><br><span class="line">left foo = 1, bar = 2;</span><br><span class="line">swap(foo, bar);</span><br><span class="line"></span><br><span class="line">// es6</span><br><span class="line">let foo = 1, bar = 2;</span><br><span class="line">[foo, bar] = [bar, foo];</span><br></pre></td></tr></table></figure></p>
+<h3 id="解构别名"><a href="#解构别名" class="headerlink" title="解构别名"></a>解构别名</h3><p>解构赋值时如果不想使用其中的属性名作为新的变量名(常量名)，那么就可以使用别名来获得相应的返回值，只需要在原来的返回值名称后面加上<code>: 别名</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fetchData() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        response: [&apos;foo&apos;, &apos;bar&apos;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">const &#123; response: data &#125; = fetchData();  </span><br><span class="line">console.log(data)   // 使用别名data</span><br></pre></td></tr></table></figure></p>
+<h3 id="缺省值"><a href="#缺省值" class="headerlink" title="缺省值"></a>缺省值</h3><p>如果在模式匹配中，存在无法匹配的值(载体对象中不存在相应的值或目标参数所对应下标超出了载体数组的下标范围)，默认情况下会获得undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const &#123; foo, bar &#125; = &#123; foo: 1 &#125;</span><br><span class="line">console.log(foo, bar)    // 1 undefined</span><br><span class="line"></span><br><span class="line">const [a, b, c] = [1,2]</span><br><span class="line">console.log(a,b,c)    // 1 2 undefined</span><br></pre></td></tr></table></figure></p>
+<p>如果不希望得到undefined值，ES6允许为参数赋予一个默认值，即当无法匹配到相应的值时，该变量便会使用该默认值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const &#123; foo = 1 &#125; = &#123; bar: 2 &#125;</span><br><span class="line">console.log(foo)  // 1</span><br><span class="line"></span><br><span class="line">const [a, b=2 ] = [1]</span><br><span class="line">console.log(a, b)   // 1 2</span><br></pre></td></tr></table></figure></p>
+<h3 id="深层匹配"><a href="#深层匹配" class="headerlink" title="深层匹配"></a>深层匹配</h3><p>深层匹配可以使用Array.map方法和深层匹配解构来取得数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">const sourceData = &#123;</span><br><span class="line">    title: &apos;this is title&apos;,</span><br><span class="line">    link: &apos;baidu.com&apos;,</span><br><span class="line">    description: &apos;this is description&apos;,</span><br><span class="line">    modified: &apos;2018.01.01&apos;,</span><br><span class="line">    generator: &apos;this is generator&apos;,</span><br><span class="line">    items: [</span><br><span class="line">        &#123;</span><br><span class="line">            &apos;title&apos;: &apos;sub title&apos;,</span><br><span class="line">            &apos;link&apos;: &apos;g.cn&apos;,</span><br><span class="line">            &apos;media&apos;: &#123;</span><br><span class="line">                m: &apos;mmmm&apos;,</span><br><span class="line">                n: &apos;nnnn&apos;</span><br><span class="line">            &#125;,</span><br><span class="line">            date_take: &apos;2016&apos;,</span><br><span class="line">            description: &apos; sub description&apos;,</span><br><span class="line">            published: &apos;2018 published&apos;,</span><br><span class="line">            author: &apos;wangzhang&apos;,</span><br><span class="line">            author_id: 123,</span><br><span class="line">            tags: &apos;kong&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const data = sourceData.items.map((&#123;title, link, author, published, media: &#123;m: image&#125;&#125;) =&gt; (&#123;</span><br><span class="line">    console.log(title, link, author, published, image)</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure></p>
+<h3 id="嵌套解构"><a href="#嵌套解构" class="headerlink" title="嵌套解构"></a>嵌套解构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// Object in Object</span><br><span class="line">const &#123; a, b: &#123; c &#125; &#125; = &#123; a: 1, b: &#123; c: 2 &#125; &#125; </span><br><span class="line">console.log(a,c)  // 1, 2</span><br><span class="line"></span><br><span class="line">// Array in Object</span><br><span class="line">const &#123; d, e: [f] &#125; = &#123; d: 1, e: [2, 3] &#125;</span><br><span class="line"></span><br><span class="line">// Object in Array</span><br><span class="line">const [ g, &#123; h &#125; ] = [1, &#123; h: 2 &#125;]</span><br><span class="line">console.log(g, h)</span><br><span class="line"></span><br><span class="line">// Array in Array</span><br><span class="line">const [ i, [ j ] ] = [ 1, [2, 3] ]</span><br><span class="line">cnosnole.log(i, j)</span><br></pre></td></tr></table></figure>
+<h3 id="配合其他新特性"><a href="#配合其他新特性" class="headerlink" title="配合其他新特性"></a>配合其他新特性</h3><p>使用for-of循环，配合const、Array.entries()特性，可以解决forEach的break问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const arr = [&apos;Mike&apos;,&apos;Peter&apos;,&apos;John&apos;];</span><br><span class="line">for(const [index, item] of arr.entries()) &#123;</span><br><span class="line">    console.log(index, item);</span><br><span class="line"></span><br><span class="line">    if(item.match(/^W/)) break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="函数参数表达、传参"><a href="#函数参数表达、传参" class="headerlink" title="函数参数表达、传参"></a>函数参数表达、传参</h2><p>ECMAScript中的函数没有重载的概念，即无法通过不同的参数列表来区分同一个函数名的不同作用<br>ES5中是通过arguments来实现默认参数、剩余参数、函数重载的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// Default value</span><br><span class="line">function fn1(opt) &#123;</span><br><span class="line">    opt = opt || &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// reset arguments</span><br><span class="line">function fn(foo, bar) &#123;</span><br><span class="line">    var resetArgs = [].slice.call(arguments, 2)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Methods overload</span><br><span class="line">function Person(name) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.greet = function() &#123;</span><br><span class="line">    var length = arguments.length;</span><br><span class="line">    if(length == 1) return this._greet.apply(this, arguments);</span><br><span class="line">    console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype._greet = function(name) &#123;</span><br><span class="line">    console.log(name, this.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3><p>语法：function name(arg = defaultValue) { … }</p>
+<p>在JavaScript通用组件开发中，某一个接口很可能需要同时提供两种获取返回值的方法–回调函数与Promise。当使用了Promise时，应当允许不传入作为最后一个形参的回调函数。在某种意义上可以说是让这个回调函数的缺省值为一个noop函数，即空函数，使内部函数在将其作为回调函数执行的时候不会有任何行为发生。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const noop = () =&gt; &#123;&#125;   // 定义空函数作为回调函数的默认值</span><br><span class="line"></span><br><span class="line">function api(callbakc = noop) &#123;</span><br><span class="line">    return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        const value = &apos;footer&apos;;</span><br><span class="line"></span><br><span class="line">        resolve(value);</span><br><span class="line">        callback(null, value);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// callback</span><br><span class="line">api((err,data) =&gt; &#123;</span><br><span class="line">    if(err) return console.error(err);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// Promise</span><br><span class="line">api().then(value =&gt; &#123; .... &#125;).catch(err =&gt; console.error(err))</span><br></pre></td></tr></table></figure></p>
+<p>函数的默认参数特性还可以用在某一个对象的方法中，而且所指定的默认参数还可以被定为该对象的某一个属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;</span><br><span class="line">    msg: &apos;world&apos;,</span><br><span class="line">    greet(message = this.msg) &#123;</span><br><span class="line">        console.log(`hello $&#123;message&#125;`)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.greet()</span><br><span class="line">obj.greet(&apos;es2015&apos;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="剩余参数"><a href="#剩余参数" class="headerlink" title="剩余参数"></a>剩余参数</h3><p>ECMAScript对函数的定义中存在一个名为arguments的对象，该对象用于在函数体内访问当前被调用时所传入的参数列表，这个arguments是一个类数组对象(Array-like Object),arguments以自然数(0,1,2…)作为属性名并以相应的传入参数值作为属性值，所以arguments对象不具备数组类型所具备的方法。因此ES5中通过Array.slice来将arguments转换为一个真正的数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">    var args = [].slice.call(arguments);</span><br><span class="line">    args.filter(function(i) &#123;</span><br><span class="line">        return i%2 == 0</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">fn(1,2,3,4,5)</span><br></pre></td></tr></table></figure></p>
+<p>在ES6中为Array对象添加了一个新的方法Array.from,这个方法的作用是将一些可以被转换为数组的对象转化为数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">    return Array.from(arguments)</span><br><span class="line">&#125;</span><br><span class="line">fn(1,2,3,4,5)</span><br></pre></td></tr></table></figure></p>
+<p>剩余参数语法：<br>function fn([arg, ] …restArgs) {}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function fn(foo, ...rest) &#123;</span><br><span class="line">    console.log(foo);</span><br><span class="line">    console.log(rest.join(&apos;,&apos;))</span><br><span class="line">&#125;</span><br><span class="line">fn(1,2,3,4,5)</span><br></pre></td></tr></table></figure></p>
+<p>使用剩余参数的特性合并对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function merge(target = &#123;&#125;, ...objs) &#123;</span><br><span class="line">    for(const obj of objs) &#123;</span><br><span class="line">        const keys = Object.keys(obj);</span><br><span class="line"></span><br><span class="line">        for(const key of keys) &#123;</span><br><span class="line">            target[key] = obj[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return target;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">merge(&#123;a: 1&#125;, &#123;b: 2&#125;, &#123;c: 3&#125;)  // &#123; a: 1, b: 2, c: 3 &#125;</span><br></pre></td></tr></table></figure></p>
+<p>一旦函数参数列表中使用了剩余参数，那么剩余参数后面便不可以再添加任何参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function fn(...rest, foo) &#123;&#125;  // syntax Error</span><br></pre></td></tr></table></figure></p>
+<p>arguments与剩余参数的区别：<br>arguments与剩余参数可以同时使用，但一种情况除外，即当arguments在箭头函数中，arguments会随着上下文绑定到上层。所以箭头函数中尽量不要用arguments，而要使用…args</p>
+<p>…args在大部分场景下都可以代替arguments，除非在特殊场景下要使用arguments.callee和arguments.caller时是无法替代的</p>
+<p>在严格模式中(Strict Mode)，arguments.callee和arguments.caller是禁止被使用的</p>
+<h3 id="解构传参"><a href="#解构传参" class="headerlink" title="解构传参"></a>解构传参</h3><p>在ECMAScript对函数的定义中，有两个用于实现自定义函数调用的方法–apply和call.这两个方法都可以让开发者以一个自定义的上下文(函数中的this)来传入参数，区别是：<br>apply需要以数组的方式传入参数，而call则需要像普通调用一样传入参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function fn() &#123;&#125;</span><br><span class="line">var obj = &#123; foo: &apos;bar&apos; &#125;</span><br><span class="line"></span><br><span class="line">//Function.prototype.apply   语法：fn.apply(context, [arg1, arg2])</span><br><span class="line">fn.apply(obj, [1,2,3]);</span><br><span class="line"></span><br><span class="line">// Function.prototype.call     语法：fn.call(context, arg1, arg2)</span><br><span class="line">fn.call(obj, 1,2,3);</span><br></pre></td></tr></table></figure></p>
+<p>这两个方法的意义在于，可以改变函数内的上下文，还能以程序化的方式控制函数的传入参数。<br>但有时函数内部是没有对上下文做任何访问的，所以apply和call的意义只是用于控制传入的参数，而上下文则可能会使用null代替<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function sum(...numbers) &#123;</span><br><span class="line">    return numbers.reduce((a, b) =&gt; a + b);</span><br><span class="line">&#125;</span><br><span class="line">sum.apply(null, [1,2,3])</span><br></pre></td></tr></table></figure></p>
+<p>ES6中的解构传参也是使用数组作为传入参数来控制函数的调用情况，但不同的是解构传参不会替换函数调用中的上下文<br>与剩余参数一样，解构传参也使用…作为语法糖标识符<br>语法：fn(…[arg1, arg2])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function sum(...numbers) &#123;</span><br><span class="line">    return numbers.reduce((a, b) =&gt; a + b)</span><br><span class="line">&#125;</span><br><span class="line">sum(...[1, 2, 3])</span><br></pre></td></tr></table></figure></p>
+<h2 id="新的数据结构"><a href="#新的数据结构" class="headerlink" title="新的数据结构"></a>新的数据结构</h2><p>在ECMAScript中，定义了以下几种基本的数据结构，分为值类型(primitive types)和引用类型(reference types)<br>值类型数据结构：<br>String     字符串<br>Number     数值型<br>Boolean    布尔型<br>Null       空值<br>Undefined  未定义值</p>
+<p>引用类型数据结构：<br>Object     对象<br>Array      数组<br>RegExp     正则<br>Date       日期<br>Error      错误</p>
+<p>从严格意义上，ECMAScript中只有Object一种引用类型，因为Array,Date等类型都是派生于Object的子类型</p>
+<h3 id="Set-无序集合"><a href="#Set-无序集合" class="headerlink" title="Set 无序集合"></a>Set 无序集合</h3><p>在ECMAScript中，Array表示一系列元素的有序集合(ordered set)，其中每一个元素都会带有自身处在这个集合中的位置并以自然数作为标记，即带有下标。但很多场景下，并不需要为一个集合中的元素维护序列，甚至其中不少场景需要无序集合。</p>
+<p>ES6中引入无序集合(Set),相当于没有排序概念的数组，在此之上无序集合也有着元素不重复的特性</p>
+<p>集合与数组的区别：数组是有序的，元素可以重复；集合是无序的，元素不可以重复</p>
+<p>集合与数组不一样的是，集合无法像数组那样使用<code>[]</code>语法来直接生成，而需要用新建对象的方法来创建一个新的集合对象。</p>
+<p>语法： new Set([iterable])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const set = new Set();</span><br></pre></td></tr></table></figure></p>
+<p>创建集合对象时，可以直接使用一个现成的数组对象作为该集合对象的初始元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const set = new Set([1,2,3])</span><br></pre></td></tr></table></figure></p>
+<p>集合对象的任何操作都需要通过集合对象来实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">set.add(value)         添加元素到集合内</span><br><span class="line">set.delete(value)      删除集合内指定元素</span><br><span class="line">set.clear()            清空集合内的元素</span><br><span class="line">set.forEach(callbackfn[, context])  遍历集合内所有元素，并作为第一参数调用callbackfn</span><br><span class="line">set.has(value)         检查集合内是否含有某元素</span><br><span class="line">set.size               集合内元素个数</span><br></pre></td></tr></table></figure></p>
+<p>创建集合对象或添加集合对象元素时，如果有重复元素，重复元素会被忽略，因为集合内元素是不能重复的。</p>
+<h4 id="遍历元素"><a href="#遍历元素" class="headerlink" title="遍历元素"></a>遍历元素</h4><p>集合对象自身定义了forEach方法，跟数组类型中的forEach一样，传入一个回调函数以接受集合内的元素，并且可以为这个回调函数指定一个上下文<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const set = new Set([1,2,3,4]);</span><br><span class="line">set.forEach(function() &#123; console.log(this) &#125;,&#123;foo: 3&#125;)</span><br><span class="line">set.forEach(item =&gt; &#123; console.log(item * this.foo) &#125;, &#123; foo: 2 &#125;) // 箭头函数中有this穿透问题，所以这里不适合用箭头函数</span><br></pre></td></tr></table></figure></p>
+<p>和数组对象中的forEach一样，集合对象中的forEach方法也是无法被中断的。在ES6中由于Symbol的引入，数组等类型有了新的属性Symbol.iterator迭代器，而这些类型也有了新的名称–可迭代对象(iterable Object)，可迭代对象包括数组类型(Array)，字符串类型(String),TypedArray,集合类型(Set),字典类型(Map),生成器类型(Generator).</p>
+<p>在ES6中定义的for-of循环语句可以对这些迭代对象进行迭代，并可以配合const和let使用，从而解决了forEach方法不可终端的问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const set = new Set([1,2,3]);</span><br><span class="line">for(const val of set) &#123;</span><br><span class="line">    console.log(val)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="WeakSet"><a href="#WeakSet" class="headerlink" title="WeakSet"></a>WeakSet</h3><p>在ES6所定义的新数据类型中，还有一种升级版本叫Weak，其中集合类型所对应的WeakSet版本是WeakSet. WeakSet是从数据存储的角度对内存进行优化的方式</p>
+<p>语法：new WeakSet()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const weakset = new WeakSet();</span><br><span class="line"></span><br><span class="line">weakset.add(1)   // TypeError  不能包含基本类型</span><br><span class="line"></span><br><span class="line">weakset.add( &#123; foo: 1 &#125; ); </span><br><span class="line">console.log(wakset)        // WeakSet &#123;&#125;    无引用的对象会被自动清除出集合</span><br><span class="line"></span><br><span class="line">weakset.size              // undefined      无法获取大小</span><br></pre></td></tr></table></figure></p>
+<p>WeakSet与Set有三个不一样的地方：<br>1.WeakSet不能包含值类型元素(基本类型)，否则会抛出一个TypeError<br>2.WeakSet不能包含无引用的对象，否则会自动清除出集合<br>3.WeakSet无法被探知大小，也无法探知其中所包含的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const weakset = new WeakSet();</span><br><span class="line">left foo = &#123; bar: 1 &#125;</span><br><span class="line"></span><br><span class="line">weakset.add(foo)</span><br><span class="line">console.log(weakset.has(foo))        // true</span><br><span class="line"></span><br><span class="line">foo = null;</span><br><span class="line">cosole.log(weakset.has(foo))         // false</span><br></pre></td></tr></table></figure></p>
+<p>如果直接将一个对象字面量加入到WeakSet中，该对象便会被自动移除，因为对象字面量自身是无法被引用的，所以无法被加入到WeakSet中</p>
+<p>而无法加入值类型的原因是，值类型在通过语法来表示的时候，是不存在引用的。而且值类型底层在进行操作的时候，会出现非常频繁的内存操作和引用变动。如字符串不存在字符串修改这一说法，程序对字符串进行操作时，会重新创建一个字符串得到操作结果，而不是对原有的数据进行修改。</p>
+<p>在ECMAScript中可以使用强制性地让类型检测将值类型判断为引用类型，以实现将字符串等值类型加入到WeakSet数据结构中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const weakset = new WeakSet();</span><br><span class="line">let str = new String(&apos;hello&apos;);</span><br><span class="line"></span><br><span class="line">weakset.add(str);</span><br><span class="line">console.log(weakset.has(str))         // true</span><br></pre></td></tr></table></figure></p>
+<p>将值类型改为引用类型进行WeakSet的弊端在于，被加入到WeakSet中的字符串不能被修改，因为一旦进行修改，其引用便会丢失，甚至导致被移除出集合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str += &apos; world&apos;;</span><br><span class="line">console.log(weakset.has(str))        // false</span><br></pre></td></tr></table></figure></p>
+<p>WeakSet最大的实用意义在于，可以让我们直接对引擎中垃圾收集器的运行情况有程序化的探知方式，开发者可以利用WeakSet的特性以更高的定制化方案来优化程序的内存使用方案。如需要实现一个应用级别的JavaScript对象存活情况监控工具，用于监控JavaScript应用中的变量使用情况及JavaScript引擎的垃圾收集情况，可以利用WeakSet来监控重要变量(常量)的变动。</p>
+<h3 id="Map映射类型"><a href="#Map映射类型" class="headerlink" title="Map映射类型"></a>Map映射类型</h3><p>映射类型有很多叫法，如Map,Hash等。在ES6之前，ECMAScript中的Object在结构上也属于映射类型。</p>
+<p>映射类型在计算机科学中的定义属于关联数组(Associative Array),而关联数组的定义为若干个键值对组成的集合，其中每一个键都只能出现一次。</p>
+<p>语法： new Map([iterable])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const map = new Map();</span><br></pre></td></tr></table></figure></p>
+<p>在创建映射对象时，可以将一个以二元数组(键值对)作为元素的数组传入到构建函数中，其中每一个键值对都会加入到该映射对象中。该数组内的元素会以数组顺序进行处理，如果存在相同的键，则会按照FIFO(First In Frist Out，先进先出)原则，以该键最后一个处理的对应值为最终值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const map = new Map([[&apos;foo&apos;,1],[&apos;bar&apos;,2]])</span><br><span class="line">console.log(map.get(&apos;foo&apos;))   // 1</span><br><span class="line"></span><br><span class="line">const map = new Map([[&apos;foo&apos;,1],[&apos;bar&apos;,2],[&apos;foo&apos;,33]]);   // 相同的键，后面覆盖前面  </span><br><span class="line">console.log(map.get(&apos;foo&apos;))  // 33</span><br></pre></td></tr></table></figure></p>
+<p>映射对象操作方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">map.set(key, value)        添加键值对到映射中</span><br><span class="line">map.get(key)               获取映射中某一个键的对应值</span><br><span class="line">map.delete(key)            将某一键值对移除出映射</span><br><span class="line">map.clear()                清空映射中所有键值对</span><br><span class="line">map.entries()              返回一个以二元数组(键值对)作为元素的数组</span><br><span class="line">map.has(key)               检查映射中是否包含某一键值对</span><br><span class="line">map.keys()                 返回一个以当前映射中所有键作为元素的可迭代对象</span><br><span class="line">map.values()               返回一个以当前映射中所有值作为元素的可迭代对象</span><br><span class="line">map.size                   映射中键值对的数量</span><br></pre></td></tr></table></figure></p>
+<p>映射对象是关联数组的一种实现，所以映射对象在设计上也同样是一种可迭代对象。可以通过for-of循环语句对其中的键值对进行遍历，也可以通过映射对象中的forEach方法来进行遍历<br>映射对象带有entries()方法，这个与集合对象中的entries()类型，用于返回一个包含所有键值对的可迭代对象。<br>for-of循环语句和forEach就是先利用entries()方法先将映射对象转化为一个类数组对象，然后再进行迭代<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const map = new Map([[&apos;foo&apos;,1], [&apos;bar&apos;,2]]);</span><br><span class="line"></span><br><span class="line">console.log(Array.from(map.entries()));</span><br><span class="line"></span><br><span class="line">for(const [key, value] of map) &#123;</span><br><span class="line">    console.log(`$&#123;key&#125;:$&#123;value&#125;`)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">map.forEach((value, key, map) =&gt; &#123;</span><br><span class="line">    console.log(`$&#123;key&#125;:$&#123;value&#125;`)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>映射对象与Object的区别：<br>映射对象Map与Object都可以存储键值对，遍历所有键值对，检查是否包含指定键值对，使用字符串作为键，使用Symbol作为键<br>但映射对象Map还可以使用任意对象作为键，可以方便地得知键值对的数量</p>
+<p>映射对象可以使用任意对象(甚至DOM对象)作为键，而普通对象却不行</p>
+<p>映射对象和普通对象的区别还体现在JSON的序列化结果中。Object的JSON序列化结果是标准的对象字面量形式，而映射对象的JSON处理结果则是以关联数组的形式表达。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const map = new Map()</span><br><span class="line">map.set(&apos;foo&apos;,1)</span><br><span class="line">map.set(&apos;bar&apos;,2)</span><br><span class="line"></span><br><span class="line">const str = JSON.stringify(map)</span><br><span class="line">console.log(str)     // [[&quot;foo&quot;,1],[&quot;bar&quot;,2]]</span><br><span class="line"></span><br><span class="line">const otherMap = new Map(JSON.parse(str));</span><br><span class="line">console.log(map.get(&apos;bar&apos;))     // 2</span><br></pre></td></tr></table></figure></p>
+<h3 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h3><p>与集合对象类型Set一样，映射类型也有一个Weak版本–WeakMap,WeakMap与WeakSet的区别是WeakMap的键会检查变量引用，只要其中任意一个引用全被解除，该键值就会被删除<br>语法： new WeakMap([iterable])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const weakm = new WeakMap();</span><br><span class="line">let keyObject = &#123; id: 1 &#125;</span><br><span class="line">const valueObject = &#123; score: 100 &#125;</span><br><span class="line"></span><br><span class="line">weakm.set(keyObject, valueObject);</span><br><span class="line">weakm.get(keyObject)   // &#123;score: 100&#125;</span><br><span class="line"></span><br><span class="line">keyObject = null;</span><br><span class="line">console.log(wakm.has(keyObject))   // false</span><br></pre></td></tr></table></figure></p>
+<h2 id="类语法Classes"><a href="#类语法Classes" class="headerlink" title="类语法Classes"></a>类语法Classes</h2><p>ES5使用函数原型来实现类系统<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Animal(name, age, job) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">    this.job = job;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.showName = function() &#123;</span><br><span class="line">    console.log(this.name)</span><br><span class="line">&#125;</span><br><span class="line">var dog = new Animal(&apos;gogo&apos;, 30, &apos;a student&apos;);</span><br><span class="line">dog.showName();</span><br></pre></td></tr></table></figure></p>
+<p>ES6类<br>语法：class name { … }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    constructor(name, age, job) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">        this.job = job;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    showName() &#123;</span><br><span class="line">        console.log(this.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const dog = new Animal(&apos;gogo&apos;, 20, &apos;a teacher&apos;);</span><br><span class="line">dog.showName();</span><br></pre></td></tr></table></figure></p>
+<p>在类中定义的方法，都是带有作用域的普通函数，而不是箭头函数，方法内第一层所引用的this都指向当前实例。如果实例方法内包含箭头函数，则引擎就会根据包含层级把箭头函数内引用的this所指向的实际对象一直向上层搜索，直到达到一个函数作用域或块级作用域为止。如果一直搜索到达了运行环境的最上层，就会被指向undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">    constructor(x, y) &#123;</span><br><span class="line">        this.x = x;</span><br><span class="line">        this.y = y;</span><br><span class="line">    &#125;</span><br><span class="line">    moveRight(step) &#123;</span><br><span class="line">        return new Promise(resolve =&gt; resolve(&#123;</span><br><span class="line">            x: this.x + step,</span><br><span class="line">            y: this.y</span><br><span class="line">        &#125;))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const p = new Point(2, 5);</span><br><span class="line">p.moveRight(3).then((&#123;x, y&#125;) =&gt; console.log(`$&#123;x&#125;,$&#123;y&#125;`))</span><br></pre></td></tr></table></figure></p>
+<h3 id="继承语法"><a href="#继承语法" class="headerlink" title="继承语法"></a>继承语法</h3><p>利用JavaScript对象原型所实现的类机制实现类的继承，可以通过组合继承、原型式继承、寄生式继承和寄生组合式继承</p>
+<p>Node.js官方标准库提供的继承<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import &#123; inherits &#125; from &apos;util&apos;;</span><br><span class="line"></span><br><span class="line">function Point2D(x, y) &#123;</span><br><span class="line">    this.x = x;</span><br><span class="line">    this.y = y;</span><br><span class="line">&#125;</span><br><span class="line">Point2D.prototype.toString = function() &#123;</span><br><span class="line">    return `($&#123;this.x&#125;, $&#123;this.y&#125;)`</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Point3D(x, y, z) &#123;</span><br><span class="line">    Point3D.super_.call(this, x, y)</span><br><span class="line">    this.z = z;</span><br><span class="line">&#125;</span><br><span class="line">inherits(Point3D, Point2D);</span><br><span class="line">Point3D.prototype.toString = function() &#123;</span><br><span class="line">    return `($&#123;this.x&#125;,$&#123;this.y&#125;,$&#123;this.z&#125;)`</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const point2d = new Point2D(2, 3);</span><br><span class="line">const point3d = new Point3D(1, 4, 3);</span><br><span class="line"></span><br><span class="line">console.log(point2d.toString());</span><br><span class="line">console.log(point3d.toString());</span><br></pre></td></tr></table></figure></p>
+<p>node.js标准库util中所提供的inherits继承方法每一次被使用都需要在子类的新方法被定义之前，即子类的prototype对象被修改之前，否则子类中所定义的方法会全部失效，因为inherits方法会将子类的prototype覆盖，导致子类在调用inherits方法之前的所有原型定义都会被覆盖。</p>
+<p>ES6类继承<br>语法：class subClass extends superClass {}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Point2D &#123;</span><br><span class="line">    constructor(x, y) &#123;</span><br><span class="line">        this.x = x;</span><br><span class="line">        this.y = y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    toString() &#123;</span><br><span class="line">        return `($&#123;this.x&#125;, $&#123;this.y&#125;)`</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Point3D extends Point2D &#123;</span><br><span class="line">    constructor(x, y, z) &#123;</span><br><span class="line">        super(x, y);</span><br><span class="line">        this.z = z;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    toString() &#123;</span><br><span class="line">        return `($&#123;this.x&#125;,$&#123;this.y&#125;,$&#123;this.z&#125;)`</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ES6的继承语法同样可以将以前使用构造函数模拟的类作为父类来继承，并非只由class语法定义的类才可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function Cat() &#123;&#125;</span><br><span class="line">Cat.prototype.climb = function() &#123;</span><br><span class="line">    return &apos;i can climb&apos;</span><br><span class="line">&#125;</span><br><span class="line">Can.prototype.yell = function() &#123;</span><br><span class="line">    return &apos;meow&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Tiger extends Cat &#123;</span><br><span class="line">    yell() &#123;</span><br><span class="line">        return &apos;Aoh&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">const tiger = new Tiger()</span><br><span class="line">tiger.yell()</span><br><span class="line">tiger.climb()</span><br></pre></td></tr></table></figure></p>
+<p>如果一个子类继承了一个父类，那么在子类的constructor构造函数中必须使用super函数调用父类的构造函数后才能在子类的constructor构造函数中使用this,否则会报出this is not defined的错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;&#125;</span><br><span class="line">class Bar extends Foo &#123;</span><br><span class="line">    constructor() &#123;</span><br><span class="line">        this.property = 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">new Bar();   // this is not defined</span><br></pre></td></tr></table></figure></p>
+<p>这个问题在除constructor构造函数外的方法中并不会出现，即便在子类的构造函数中并没有调用super函数，在其他方法中依然可以调用this来指向当前实例</p>
+<h3 id="Getter-Setter"><a href="#Getter-Setter" class="headerlink" title="Getter/Setter"></a>Getter/Setter</h3><p>Getter/Setter是一种元编程(Meta-programming)的概念，元编程的特点在于，允许程序可以对运行时(runtime)的对象进行读取和操作，从而使程序可以脱离代码从字面上为程序定义的一些限制，有了对对象更高操作权限。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const Counter = &#123;</span><br><span class="line">    _count: 0,</span><br><span class="line">    get value() &#123;</span><br><span class="line">        return ++this._count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Counter.value   // 1   value后面不用括号，value不是函数</span><br><span class="line">Counter.value   // 2</span><br></pre></td></tr></table></figure></p>
+<p>配合Setter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const List = &#123;</span><br><span class="line">    _array: [],</span><br><span class="line">    set new(value) &#123;</span><br><span class="line">        this._array.push(value)</span><br><span class="line">    &#125;,</span><br><span class="line">    get last() &#123;</span><br><span class="line">        return this._array[0]</span><br><span class="line">    &#125;,</span><br><span class="line">    get value() &#123;</span><br><span class="line">        return this._array</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">List.new = 1;</span><br><span class="line">List.new = 2</span><br><span class="line">List.last    // 1</span><br><span class="line">List.value = [1,2]</span><br></pre></td></tr></table></figure></p>
+<p>ES6的类机制也同样支持Getter/Setter在类中使用，配合元编程的概念，类的能力更强大<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Point &#123;</span><br><span class="line">    constructor(x,y) &#123;</span><br><span class="line">        this.x = x;</span><br><span class="line">        this.y = y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    get d() &#123;</span><br><span class="line">        return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const p = new Point(3,4);</span><br><span class="line">p.d    // 5</span><br></pre></td></tr></table></figure></p>
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p>大多数使用类的情况下，只需要关心类的实例方法即可，但有时候同样需要对类对象本身定义一些方法，以满足一些特殊需求，如类型检测Array.isArray(),实例创建方法Object.create,Array.from</p>
+<p>静态方法语法：class Name { static fn(){…} }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    constructor(family, specie, hue) &#123;</span><br><span class="line">        this.family = family;</span><br><span class="line">        this.specie = specie;</span><br><span class="line">        this.hue = hue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    yell() &#123;</span><br><span class="line">        console.log(this.hue)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static extend(constructor, ..._args) &#123;</span><br><span class="line">        return class extends Animal &#123;</span><br><span class="line">            constructor(...args) &#123;</span><br><span class="line">                super(..._args);</span><br><span class="line">                constructor.call(this, ...args)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const Dog = Animal.extend(function(name) &#123;</span><br><span class="line">    this.name = name</span><br><span class="line">&#125;, &apos;canidae&apos;,&apos;lupus&apos;, &apos;woug&apos;);</span><br><span class="line"></span><br><span class="line">const doge = new Dog(&apos;doge&apos;);</span><br><span class="line">doge.yell();  // woug</span><br><span class="line">console.log(doge.name)  // doge</span><br></pre></td></tr></table></figure></p>
+<p>静态方法extend先定义了一个继承于Animal的子类，并在该子类的构建函数中将extend方法的后续参数作为形参传入super(Animal的构建函数中)，以实现参数固化</p>
+<p>静态方法可以与Getter/Setter相配合，来为类自身提供元编程的能力。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个Node类，每个Node实例之间可以建立从属关系(或父子关系)，且每个Node实例下方可以带有多个Node子实例，而Node类自身可以检索到所有实例的数量</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 每个Node实例都有两个属性，一个用于保存当前节点的父节点，一个用于存储当前节点的子节点的集合对象</span></span><br><span class="line">    <span class="keyword">constructor</span>(parent = null) &#123;</span><br><span class="line">        <span class="keyword">this</span>._parent = parent;</span><br><span class="line">        <span class="keyword">this</span>._children = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.isRoot) &#123;</span><br><span class="line">            Node.addRoot(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 要知道每一个节点是否为一个节点树的根节点，可以通过设置getter，并根据当前节点是否带有父节点来判断</span></span><br><span class="line">    get isRoot() &#123;</span><br><span class="line">        <span class="keyword">return</span> !<span class="keyword">this</span>._parent;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 为当前节点增加子节点，并将这个子节点返回</span></span><br><span class="line">    createChild() &#123;</span><br><span class="line">        <span class="keyword">const</span> node = <span class="keyword">new</span> Node(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">this</span>._children.add(node);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 删除当前节点，如果这个节点带有子节点，那么这些子节点也将同时被全部移除</span></span><br><span class="line">    removeFromParent() &#123;</span><br><span class="line">        <span class="keyword">this</span>._parent = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">this</span>._parent._children.delete(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 为每一个实例实现一个计算包括自身在内多有向下子节点数量的方法，这个方法通过树形递归来实现，父节点的该属性会访问子节点的同一属性，从而实现自动求和</span></span><br><span class="line">    get size() &#123;</span><br><span class="line">        <span class="keyword">let</span> size = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">const</span> node <span class="keyword">of</span> <span class="keyword">this</span>._children) &#123;</span><br><span class="line">            size += node.size;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        size = size ? size + <span class="number">1</span> : <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 根节点也是需要存储到Node类自身中的，可以通过一个静态方法来把这些根节点存储起来</span></span><br><span class="line">    <span class="keyword">static</span> addRoot(root) &#123;</span><br><span class="line">        Node.roots = !Node.roots ? [root] : Node.roots.concat([root])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 通过对所有根节点求和，得到所有节点的数量</span></span><br><span class="line">    <span class="keyword">static</span> get size() &#123;</span><br><span class="line">        <span class="keyword">return</span> Node.roots.map(<span class="function"><span class="params">root</span> =&gt;</span> root.size).reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;                                                       </span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> root1 = <span class="keyword">new</span> Node();</span><br><span class="line">root1.createChild().createChild()  <span class="comment">// 3</span></span><br><span class="line"><span class="keyword">const</span> root2 = <span class="keyword">new</span> Node();</span><br><span class="line">root2.createChild();   <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(root1.size)  <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(root2.size)  <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(Node.size)   <span class="comment">// 5</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="高级技巧"><a href="#高级技巧" class="headerlink" title="高级技巧"></a>高级技巧</h3><p>在ECMAScript中所有的对象都会带有一个名为toString()的方法，而这个方法是被定义在Object这个最底层类上的。</p>
+<p>一般情况下，如果定义一个对象字面量并执行它的toString()方法，可以看到该方法返沪的内容是字符串<code>[object Object]</code></p>
+<p>在Object类及其所有的子类(在ECMAScript中，除了null, undefined以外，一切类型和类都可以看作是Object的子类)的实例中，有一个利用Symbol.toStringTag作为键的属性，它定义着当这个对象的toString()方法被调用时，所返回的Tag的内容是什么<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;</span><br><span class="line">    get [Symbol.toStringTag]() &#123;</span><br><span class="line">        return &apos;Bar&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">const obj = new Foo();</span><br><span class="line">obj.toString()    // [object Bar]</span><br></pre></td></tr></table></figure></p>
+<p>函数在ECMAScript中有两种定义方法，即声明式和定义式</p>
+<ul>
+<li><p>声明式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function Foo() &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Foo = function() &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>声明式的函数定义在ECMAScript的运行中是可以被提升的(hoisting),即在声明式函数所在的作用域开始执行时，无论是否已经执行到这个函数的代码，都可以对这个函数进行访问和使用。而这个函数的提升甚至包括定义在return语句之后的情况。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const val = (function() &#123;</span><br><span class="line">    return fn();</span><br><span class="line"></span><br><span class="line">    function fn() &#123;    // fn would be hoisted</span><br><span class="line">        return &apos;footbar&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<p>函数提升这个特性同样适用于利用原型定义的类，然而对于ES6中类语法来说，这个特性是无法使用的。<br>因为从逻辑上看，类的继承必须是单向的，不可能出现A类继承于B类的同时B类也继承A类的现象，这就意味着父类必须在子类定义之前被定义。</p>
+<p>ES6语法不支持地方：</p>
+<ul>
+<li>不支持私有属性(private)</li>
+<li>不支持实例属性，但目前可以通过Getter/Setter实现</li>
+<li>不支持多重继承</li>
+<li>暂时没有类似于协议(protocl)和接口(interface)等概念</li>
+</ul>
+<h2 id="生成器Generator"><a href="#生成器Generator" class="headerlink" title="生成器Generator"></a>生成器Generator</h2><p>生成器主要功能是通过一段程序，持续迭代或枚举出符合某个公式或算法的有序数列中的元素。这个程序便是用于实现这个公式或算法的，而不需要将目标数列完整写出。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function* fibo() &#123;</span><br><span class="line">    let a = 0;</span><br><span class="line">    let b = 1;</span><br><span class="line">    </span><br><span class="line">    yield a;</span><br><span class="line">    yield b;</span><br><span class="line"></span><br><span class="line">    whild(true) &#123;</span><br><span class="line">        let next = a + b;</span><br><span class="line">        a = b;</span><br><span class="line">        b = next;</span><br><span class="line">        yeild next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let generator = fibo();</span><br><span class="line">for(var i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">    console.log(generator.next().value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="生成器函数Generator-Function"><a href="#生成器函数Generator-Function" class="headerlink" title="生成器函数Generator Function"></a>生成器函数Generator Function</h3><p>生成器函数与普通函数的差别是在function语句之后和函数名之前，有一个<code>*</code>作为生成器函数的标识符<br>语法： function<em> fn() { }  或 const fnName = function</em> () {}<br>生成器函数的函数体内容将会是所生成的生成器的执行内容，在这些内容中，yield语句的引入使得生成器函数与普通函数有了区别。yield语句的作用与return语句类似，但并非退出函数体，而是切出当前函数的运行时，与此同时可以将一个值(可以是任何类型)带到主线程</p>
+<h3 id="生成器Generator-1"><a href="#生成器Generator-1" class="headerlink" title="生成器Generator"></a>生成器Generator</h3><p>生成器提供了一种可以通过特定语句或方法使其执行对象(Execution)暂停的功能，而这语句一般都是yield语句。<br>在ES6中，yield语句可以将一个值带出协程，而主线程也可以通过生成器对象的方法将一个值带回生成器的执行对象中去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const inputValue = yield outputValue;</span><br></pre></td></tr></table></figure></p>
+<p>生成器切出执行对象并带出outputValue,主线程经过同步或异步处理后，通过.next(val)方法将inputValue带回生成器的执行对象中</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>1.构建生成器函数<br>使用生成器的第一步是构建一个生成器函数，以生成相对应的生成器对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function * genFn() &#123;</span><br><span class="line">    let a = 2;</span><br><span class="line"></span><br><span class="line">    yield a;</span><br><span class="line"></span><br><span class="line">    while(true) &#123;   // 使用while(true)循环保持程序的不断执行</span><br><span class="line">        yeild a = a / ( 2 * a + 1 );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.启动生成器<br>生成器函数不能直接作为普通函数来使用，因为调用时无法直接执行其中的逻辑代码。执行生成器函数会返回一个生成器对象，用于运行生成器内容和接受其中的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const gen = genFn()</span><br></pre></td></tr></table></figure></p>
+<p>生成器是通过生成器函数实现的一个生成器(类)实例。</p>
+<p>用伪代码模拟生成器类语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Generator &#123;</span><br><span class="line">    next(value)</span><br><span class="line">    throw(error)</span><br><span class="line">    [@@iterator]()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">generator.next(value) // 获取下一个生成器切出状态(第一次执行时为第一个切出状态)</span><br><span class="line">generator.throw(error)  // 向当前生成器执行对象抛出一个错误，并终止生成器的运行</span><br><span class="line">generator[@@iterator]   // @@iterator为Symbol.iterator,为生成器提供实现可迭代对象的方法，使其可以直接被for-of循环语句使用</span><br></pre></td></tr></table></figure></p>
+<p>.next(value) 方法会返回一个状态对象，包含当前生成器的运行状态和所返回的值。<code>{ value: Any, done: Boolean }</code></p>
+<p>生成器执行对象会不断检查生成器的状态，一旦遇到生成器内的最后一个yield语句或第一个return语句便进入终止状态，即状态对象中的done属性会从false变为true</p>
+<p>.throw(error)方法会提前让生成器进入终止状态，并将error作为错误抛出</p>
+<p>3.运行生成器内容<br>因为生成器对象自身也是一种可迭代对象，所以可以直接使用for-of循环将其中输出的值打印出来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(const a of gen) &#123;</span><br><span class="line">    if( a &lt; 1/100 ) break;</span><br><span class="line">    console.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>生成器对象是一种可以被暂停的运行时，每一次执行yield都会将当前生成器执行对象暂停并输出一个值到主线程。yield语句是暂停的标志</p>
+<p>ES6的生成器函数也是一种构造函数或类，开发者定义的每一个生成器函数都可以看作对应生成器的类，而所产生的生成器都是这些类的派生实例</p>
+<p>在很多基于类(或原型)的库中都可以看到如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function Point(x, y) &#123;</span><br><span class="line">    if(!(this instanceof Point) return new Point(x, y))</span><br><span class="line">&#125;</span><br><span class="line">const p1 = new Point(1,2)</span><br><span class="line">const p2 = Point(2,3)</span><br></pre></td></tr></table></figure></p>
+<p>这句代码的作用是为了避免开发者在创建某一个类的实例时没有使用new语句而出现错误。ECMAScript内部中的绝大部分类型构造函数(不包括Map和Set及它们的Weak版本),都带有这种特性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String()   // &apos;&apos;</span><br><span class="line">Number()   // 0</span><br><span class="line">Boolean()  // false</span><br><span class="line">Object()  // Object &#123;&#125;</span><br><span class="line">Array()   // []</span><br><span class="line">Date()    // the current time</span><br><span class="line">RegExp()  // /(?:)/</span><br></pre></td></tr></table></figure></p>
+<p>正则中的<code>?=n</code> 匹配任何其后紧接着指定字符串n的字符串; <code>(?:x)</code> 不捕获分组</p>
+<p>filmy<br>|-src<br>| |-main.js             入口文件<br>| |-modules             数据组件<br>| |-components          视图组件<br>| |-router-components   路由组件<br>| |-libs                必要的工具<br>|-assets                静态文件<br>|-build.js              打包文件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/29/ES2015/" data-id="cjfc0yfcp0001iepvbh4n353o" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES2015/">ES2015</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/29/vue/" class="article-date">
+  <time datetime="2018-03-29T02:00:54.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/vue/">vue</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>console.dir(el)  可以查看el的DOM树</p>
+<h2 id="Vue-js是构建用户界面的渐进式框架"><a href="#Vue-js是构建用户界面的渐进式框架" class="headerlink" title="Vue.js是构建用户界面的渐进式框架"></a>Vue.js是构建用户界面的渐进式框架</h2><p>声明式渲染 -&gt; 组件系统 -&gt; 客户端路由 -&gt; 大规模状态管理 -&gt; 构建工具</p>
+<h2 id="vue的两个核心点"><a href="#vue的两个核心点" class="headerlink" title="vue的两个核心点"></a>vue的两个核心点</h2><p>1.响应的数据绑定<br>当数据发生改变 -&gt; 自动更新视图<br>利用Object.definedProperty中的setter/getter代理数据，监控对数据的操作</p>
+<p>2.组件的视图组件<br>ui页面映射为组件树<br>划分组件可维护、可重用、可测试</p>
+<h2 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h2><p>利用在内存中生成与真实DOM与之对应的数据哦结构，这个在内存中生成的结构称之为虚拟DOM<br>当数据发生变化时，能智能计算出重新渲染组件的最小代价并应用到DOM操作上</p>
+<h2 id="vue实例"><a href="#vue实例" class="headerlink" title="vue实例"></a>vue实例</h2><p>每一个应用都是通过Vue这个构造函数创建根实例(root instance)启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Vue(选项对象)</span><br></pre></td></tr></table></figure></p>
+<p>需要传入选项对象，对象包括挂载元素，数据，模板，方法等<br>el: 挂载元素选择器 String|HtmlElement<br>data: 代理数据     Oject|Function<br>methods: 定义方法  Object</p>
+<p><strong>vue代理data数据</strong><br>每个Vue实例都会代理其data对象里所有的属性，这些被代理的属性是响应的。新添加的属性不具备响应功能，改变后不会更新视图。</p>
+<p><strong>vue实例自身属性和方法</strong><br>暴露自身的属性和方法，以$开头，如$el,$data</p>
+<h2 id="声明式渲染"><a href="#声明式渲染" class="headerlink" title="声明式渲染"></a>声明式渲染</h2><ul>
+<li>声明式<br>只需要声明在哪里(where)做什么(what)，而无需关心如何实现(how)</li>
+<li>命令式<br>需要以具体代码表达在哪里(where)做什么(what),如何实现(how)</li>
+<li>vue声明式渲染<br>初始化根实例，vue自动将数据绑定到DOM模板上</li>
+</ul>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>v-on:事件 简写@<br>v-bind:属性 简写:</p>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><ol>
+<li><p>html模板<br>基于DOM的模板，模板都是可以解析的有效的HTML<br>插值：<br> 文本插值：使用小胡子语法 <br> 原生html插值: 使用v-html进行绑定； 因为小胡子输出的是文本，不会解析html<br> 属性插值：使用v-bind进行绑定，可以响应变化<br> 使用javascript表达式：可以在插值中写简单的表达式</p>
+</li>
+<li><p>template模板<br>将html内容作为template选项对象的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">template: &apos;&lt;span&gt;&#123;&#123;msg&#125;&#125;&lt;/span&gt;&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>根节点只能有一个<br>也可以将html结构写在script标签中，设置type=”x-template”；然后template选项对象指定为template的id<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;x-template&quot; id=&quot;tm&quot;&gt;</span><br><span class="line">    xxxx</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">template: &apos;#tm&apos;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>render渲染函数模板<br>render选项对象的属性<br>createElement(标签名，[数据对象], 子元素)<br>数据对象属性：<br> class: {}   // 绑定class<br> style: {}   // 绑定样式<br> attrs: {}   // 添加行间属性<br> domProps: {}  // dom元素属性<br> on: {}      // 绑定事件<br> nativeOn: {}   // 监听原生时间<br> directives: {}  // 自定义指令<br> scopedSlots:{}   // slot作用域<br> slot: {}    // 定义slot名称<br> key: ‘key’   // 给元素添加唯一标识<br> ref: ‘ref’  // 引用信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">render(createElement) &#123;</span><br><span class="line">    return createElement(...)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><p>v-for指令<br>根据一组数组的选项列表进行渲染<br>语法：<br>    value,key in items<br>    value,key of items<br>变异方法：<br>vue提供一组方法，对数组进行操作时候，会触发视图更新：<br>push(),pop(),shift(),unshift(),splice(),sort(),reverse()<br>这些方法都是对原生数组方法的变异</p>
+<h2 id="事件处理器"><a href="#事件处理器" class="headerlink" title="事件处理器"></a>事件处理器</h2><p>v-on指令<br>用来监听DOM事件触发代码<br>语法：<br>    v-on:eventName = “evnetHandle”<br>指令简写：<br>    @<br>事件处理函数：<br>    写在methods中统一管理<br>事件对象：<br>    在事件处理函数中获取<br>    内敛事件处理函数执行，传入事件对象$event</p>
+<h2 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h2><pre><code>事件处理函数只有纯粹的逻辑判断，不处理DOM事件的细节
+例如：阻止冒泡，取消默认行为，判断按键
+</code></pre><p>修饰符的位置：<br>    v-on:eventName.修饰符<br>修饰符：<br>    .stop  .prevent  .capture  .self   .once<br>按键修饰符：<br>    .enter  .tab   .delete   .esc<br>    .space  .up    .down     .left   .right<br>    .ctrl   .alt   .shift    .meta   .键值</p>
+<h2 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h2><p>v-show 指令<br>根据表达式的值，用来显示/隐藏元素<br>语法：<br>    v-show=”表达式”<br>元素会被渲染在页面中，只根据表达式的值进行css切换</p>
+<h2 id="动态class"><a href="#动态class" class="headerlink" title="动态class"></a>动态class</h2><p>class也为元素的属性，可以使用v-bind:class<br>语法：<br>    ：class = “{className: 表达式}”<br>    表达式值为true,添加className；为flase,不添加className</p>
+<pre><code>:class = &quot;[className1, className2]&quot;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/29/vue/" data-id="cjfc0yfex0011iepvtbfvavhh" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/">Vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-oocss" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/29/oocss/" class="article-date">
+  <time datetime="2018-03-29T02:00:20.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/css/">css</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/oocss/">oocss</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>OO CSS 将页面可重用元素抽象成一个类，用class 加以描述，而与其对应的html 即可看成是此类的一个实例</p>
+<p>OO CSS 的作用</p>
+<ol>
+<li>加强代码复用以便方面维护。</li>
+<li>减少 CSS 体积（用父类的即可）。</li>
+<li>提升渲染效率。</li>
+<li>组件库思想、栅格布局可共同、减少选择器、方面扩展。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/29/oocss/" data-id="cjfc0yfen000xiepvzp3ok7wf" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oo/">oo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oocss/">oocss</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-webp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/29/webp/" class="article-date">
+  <time datetime="2018-03-29T02:00:13.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/webp/">webp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>WebP（发音 weppy），是一种支持有损压缩和无损压缩的图片文件格式，派生自图像编码格式 VP8。根据 Google 的测试，无损压缩后的 WebP 比 PNG 文件少了 45％ 的文件大小，即使这些 PNG 文件经过其他压缩工具压缩之后，WebP 还是可以减少 28％ 的文件大小</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/29/webp/" data-id="cjfc0yff00015iepv2uh8ifft" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webp/">webp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-前端性能优化-reflow回流和repaint重绘" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/29/前端性能优化-reflow回流和repaint重绘/" class="article-date">
+  <time datetime="2018-03-29T01:59:26.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/29/前端性能优化-reflow回流和repaint重绘/">前端性能优化-reflow回流和repaint重绘</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>整个浏览器的渲染过程中(页面初始化，用户行为改变界面样式，动画改变页面样式等)reflow和repaint会大大影响web性能，尤其是手机也没。因此在页面设计的时候要尽量减少reflow和repaint</p>
+<p>reflow指某个子元素样式发生改变，直接影响到了其父元素及其网上追溯很多祖先元素(包括兄弟元素)，这个时候浏览器要重新去渲染这个子元素相关的所有元素的过程称为回流。<br>只要引起页面上某些元素的占位面积、定位方式、边距等属性的变化，都会引起它内部、周围甚至整个页面的重新渲染。</p>
+<p>repaint:如果只是改变某个元素的背景色、文字颜色、边框颜色等不影响它周围或内部布局的属性，将只会引起浏览器重绘。重绘的速度明显快于reflow.</p>
+<p>导致回流的情况：<br>1.改变窗口大小<br>2.改变文字大小<br>3.内容的改变，如用户在输入框中敲字<br>4.激活伪类，如：hover<br>5.操作class属性<br>6.脚本操作DOM<br>7.计算offsetWidth和offsetHeight<br>8.设置style属性</p>
+<p>减少回流的方式：</p>
+<ol>
+<li>不要通过父级来改变子元素样式，最好直接改变子元素样式，改变子元素样式尽可能不要影响父元素和兄弟元素的大小和尺寸</li>
+<li>尽量通过class来设计元素样式，切忌使用style</li>
+<li>实现元素的动画，对于经常要进行回流的组件，要抽离出来，它的position属性应当设置为fixed或absolute</li>
+<li>权衡速度的平滑。如实现一个动画，以1个像素为单位移动这样最平滑，但reflow就会过于频繁，cpu很快就会被完全占用。如果以3像素为单位移动就会好很多。</li>
+<li>不要用tables布局的另一个原因即是tables中某一个元素一旦触发reflow就会导致table里的所有其他元素reflow.在适用于table的场合，可以设置table-layout为auto或fixed</li>
+<li>设置table-layout的好处是可以让table一行一行渲染，这种做法就限制了reflow的影响范围</li>
+<li>css里不要有表达式expression</li>
+<li>减少不必要的DOM层级(DOM depth).改变DOM树中的一级会导致所有层级的改变，上至根部，下至被改变节点的子节点。这导致大量的时间耗费在执行reflow上面。</li>
+<li>避免不必要的复杂的css选择器，尤其是后代选择器(descendant selectors)，因为为了匹配选择器将耗费更多的cpu</li>
+<li>尽量不要过多的频繁的去增加，修改，删除元素，因为这可能会频繁的导致页面reflow,可以先把该dom节点抽离到内存中进行复制的操作饭后在display到页面上</li>
+<li>请求如下值offsetTop,offsetLeft,offsetWidth,offsetHeight,scrollTop/Left/Width/Height,clientTop/Left/Width/Height，浏览器会发生reflow,建议将他们合并到一起操作，可以减少回流的次数</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/29/前端性能优化-reflow回流和repaint重绘/" data-id="cjfc0yff7001ciepv95404cdk" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/reflow/">reflow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/repaint/">repaint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Linux常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/03/23/Linux常用命令/" class="article-date">
@@ -119,7 +573,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/23/Linux常用命令/" data-id="cjf3to4cp000870pvatn4i49y" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/23/Linux常用命令/" data-id="cjfc0yfdo0009iepvkp2zxzfp" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -249,7 +703,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/23/HTML5从入门到精通/" data-id="cjf3tkg7e000270pvexqwf8o9" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/23/HTML5从入门到精通/" data-id="cjfc0yfd40004iepvlsj6j7rw" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li></ul>
@@ -318,7 +772,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/23/apicloud学习笔记/" data-id="cjf3tc8v2000wzppv0d1bhaf0" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/23/apicloud学习笔记/" data-id="cjfc0yfe6000oiepvdhgkdgq2" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apicloud/">apicloud</a></li></ul>
@@ -364,7 +818,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/23/git入门教程/" data-id="cjf3t61pg000pzppvia20bfp5" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/23/git入门教程/" data-id="cjfc0yfec000siepvfd9k4uo4" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
@@ -408,319 +862,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/23/Sublime-Text3设置/" data-id="cjf3sopwc000czppv9xqnrftp" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2018/03/23/Sublime-Text3设置/" data-id="cjfc0yfe3000miepvrxle5jc0" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text/">sublime text</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Sublime-Text3快捷键" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/23/Sublime-Text3快捷键/" class="article-date">
-  <time datetime="2018-03-23T10:20:17.000Z" itemprop="datePublished">2018-03-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/sublime-text/">sublime text</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/23/Sublime-Text3快捷键/">Sublime-Text3快捷键</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="选择类"><a href="#选择类" class="headerlink" title="选择类"></a>选择类</h2><ul>
-<li><code>Ctrl + D</code> 选中光标所占的文本，继续操作则会选中下一个相同的文本。</li>
-<li><code>Alt + F3</code> 选中文本按下快捷键，即可一次性选择全部的相同文本进行同时编辑。举个栗子：快速选中并更改所有相同的变量名、函数名等。</li>
-<li><code>Ctrl + L</code> 选中整行，继续操作则继续选择下一行，效果和 <code>Shift + ↓</code> 效果一样。</li>
-<li><code>Ctrl + Shift + L</code> 先选中多行，再按下快捷键，会在每行行尾插入光标，即可同时编辑这些行。</li>
-<li><code>Ctrl + Shift + M</code> 选择括号内的内容（继续选择父括号）。举个栗子：快速选中删除函数中的代码，重写函数体代码或重写括号内里的内容。</li>
-<li><code>Ctrl + M</code> 光标移动至括号内结束或开始的位置。</li>
-<li><code>Ctrl + Enter</code> 在下一行插入新行。举个栗子：即使光标不在行尾，也能快速向下插入一行。</li>
-<li><code>Ctrl + Shift + Enter</code> 在上一行插入新行。举个栗子：即使光标不在行首，也能快速向上插入一行。</li>
-<li><code>Ctrl + Shift + [</code> 选中代码，按下快捷键，折叠代码。</li>
-<li><code>Ctrl + Shift + ]</code> 选中代码，按下快捷键，展开代码。</li>
-<li><code>Ctrl + K + 0</code> 展开所有折叠代码。</li>
-<li><code>Ctrl + ←</code> 向左单位性地移动光标，快速移动光标。</li>
-<li><code>Ctrl + →</code> 向右单位性地移动光标，快速移动光标。</li>
-<li><code>shift + ↑</code> 向上选中多行。</li>
-<li><code>shift + ↓</code> 向下选中多行。</li>
-<li><code>Shift + ←</code> 向左选中文本。</li>
-<li><code>Shift + →</code> 向右选中文本。</li>
-<li><code>Ctrl + Shift + ←</code> 向左单位性地选中文本。</li>
-<li><code>Ctrl + Shift + →</code> 向右单位性地选中文本。</li>
-<li><code>Ctrl + Shift + ↑</code> 将光标所在行和上一行代码互换（将光标所在行插入到上一行之前）。</li>
-<li><code>Ctrl + Shift + ↓</code> 将光标所在行和下一行代码互换（将光标所在行插入到下一行之后）。</li>
-<li><code>Ctrl + Alt + ↑</code> 或 <code>Ctrl + Alt +</code> 鼠标向上拖动 向上添加多行光标，可同时编辑多行。</li>
-<li><code>Ctrl + Alt + ↓</code> 或 <code>Ctrl + Alt +</code> 鼠标向下拖动 向下添加多行光标，可同时编辑多行。</li>
-</ul>
-<h2 id="编辑类"><a href="#编辑类" class="headerlink" title="编辑类"></a>编辑类</h2><ul>
-<li><code>Ctrl + J</code> 合并选中的多行代码为一行。举个栗子：将多行格式的CSS属性合并为一行。</li>
-<li><code>Ctrl + Shift + D</code> 复制光标所在整行，插入到下一行。</li>
-<li><code>Tab</code> 向右缩进。只对光标后（或者选中的）的代码有效</li>
-<li><code>Shift + Tab</code> 向左缩进。</li>
-<li><code>Ctrl + [</code> 向左缩进。对整行有效</li>
-<li><code>Ctrl + ]</code> 向右缩进。对整行有效</li>
-<li><code>Ctrl + K + K</code> 从光标处开始删除代码至行尾。按住<code>Ctrl</code>，按两次<code>K</code>。</li>
-<li><code>Ctrl + Shift + K</code> 删除整行。</li>
-<li><code>Ctrl + /</code> 注释单行。</li>
-<li><code>Ctrl + Shift + /</code> 注释多行。</li>
-<li><code>Ctrl + K + U</code> 转换大写。</li>
-<li><code>Ctrl + K + L</code> 转换小写。</li>
-<li><code>Ctrl + Z</code> 撤销。</li>
-<li><code>Ctrl + Y</code> 恢复撤销。</li>
-<li><code>Ctrl + U</code> 软撤销，感觉和 <code>Gtrl + Z</code> 一样。</li>
-<li><code>Ctrl + F2</code> 设置书签，<code>F2</code>切换书签</li>
-<li><code>Ctrl + T</code> 左右字母互换。</li>
-<li><code>F6</code> 单词检测拼写</li>
-</ul>
-<h2 id="搜索类"><a href="#搜索类" class="headerlink" title="搜索类"></a>搜索类</h2><ul>
-<li><code>Ctrl + F</code> 打开底部搜索框，查找关键字。</li>
-<li><code>Ctrl + shift + F</code> 在文件夹内查找，与普通编辑器不同的地方是sublime允许添加多个文件夹进行查找，略高端，未研究。</li>
-<li><code>Ctrl + P</code> 打开搜索框。举个栗子：1、输入当前项目中的文件名，快速搜索文件，2、输入<code>@</code>和关键字，查找文件中函数名，3、输入：和数字，跳转到文件中该行代码，4、输入<code>#</code>和关键字，查找变量名。</li>
-<li><code>Ctrl + G</code> 打开搜索框，自动带<code>：</code>，输入数字跳转到该行代码。举个栗子：在页面代码比较长的文件中快速定位。</li>
-<li><code>Ctrl + R</code> 打开搜索框，自动带<code>@</code>，输入关键字，查找文件中的函数名。举个栗子：在函数较多的页面快速查找某个函数。</li>
-<li><code>Ctrl + ：</code> 打开搜索框，自动带<code>#</code>，输入关键字，查找文件中的变量名、属性名等。</li>
-<li><code>Esc</code> 退出光标多行选择，退出搜索框，命令框等。</li>
-<li><code>Ctrl + Shift + P</code> 打开命令框。场景栗子：打开命名框，输入关键字，调用sublime text或插件的功能，例如使用package安装插件。</li>
-</ul>
-<h2 id="显示类"><a href="#显示类" class="headerlink" title="显示类"></a>显示类</h2><ul>
-<li><code>Ctrl + Tab</code> 按文件浏览过的顺序，切换当前窗口的标签页。</li>
-<li><code>Ctrl + PageDown</code> 向左切换当前窗口的标签页。</li>
-<li><code>Ctrl + PageUp</code> 向右切换当前窗口的标签页。</li>
-<li><code>Alt + Shift + 1</code> 窗口分屏，恢复默认1屏（非小键盘的数字）</li>
-<li><code>Alt + Shift + 2</code> 左右分屏-2列</li>
-<li><code>Alt + Shift + 3</code> 左右分屏-3列</li>
-<li><code>Alt + Shift + 4</code> 左右分屏-4列</li>
-<li><code>Alt + Shift + 5</code> 等分4屏</li>
-<li><code>Alt + Shift + 8</code> 垂直分屏-2屏</li>
-<li><code>Alt + Shift + 9</code> 垂直分屏-3屏</li>
-<li><code>Ctrl + K + B</code> 开启/关闭侧边栏。</li>
-<li><code>F11</code> 全屏模式</li>
-<li><code>Shift + F11</code> 免打扰模式</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/23/Sublime-Text3快捷键/" data-id="cjf3sod8b000bzppv18eih819" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text/">sublime text</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Sublime-Text3常用插件及用法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/23/Sublime-Text3常用插件及用法/" class="article-date">
-  <time datetime="2018-03-23T10:20:00.000Z" itemprop="datePublished">2018-03-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/sublime-text/">sublime text</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/23/Sublime-Text3常用插件及用法/">Sublime-Text3常用插件及用法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[官方插件搜索网址]<a href="https://packagecontrol.io" target="_blank" rel="noopener">https://packagecontrol.io</a></p>
-<h2 id="Markdown-Preview"><a href="#Markdown-Preview" class="headerlink" title="Markdown Preview"></a>Markdown Preview</h2><p>作用：markdown预览插件<br>使用方法：<br>1.按住<code>ctrl+shift+p</code>调出命令面板，输入<code>Preview</code>,选择相应的预览选项；<br>2.按住<code>ctrl+B</code>进行构建生成html </p>
-<h2 id="emmet"><a href="#emmet" class="headerlink" title="emmet"></a>emmet</h2><p>作用：代码生成插件</p>
-<h2 id="sidebarEnhancements"><a href="#sidebarEnhancements" class="headerlink" title="sidebarEnhancements"></a>sidebarEnhancements</h2><p>作用：侧边栏增强</p>
-<h2 id="cTags"><a href="#cTags" class="headerlink" title="cTags"></a>cTags</h2><p>作用：代码跟踪</p>
-<h2 id="DocBlockr"><a href="#DocBlockr" class="headerlink" title="DocBlockr"></a>DocBlockr</h2><p>作用：文档注释<br>使用方法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/** + tab <span class="comment">#生成注释文档</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="ADBview"><a href="#ADBview" class="headerlink" title="ADBview"></a>ADBview</h2><p>作用：查看console.log日志；用于android debug调试</p>
-<h2 id="html-css-js-prettify"><a href="#html-css-js-prettify" class="headerlink" title="html-css-js prettify"></a>html-css-js prettify</h2><p>作用：代码美化<br>使用方法：<br>1.依赖node.js运行，在set node path中修改nodejs路径<br>2.set prettify preferences:<br>修改 “indent_inner_html”: true,  “indent_scripts”: “normal”,<br>3.代码美化命令 <code>ctrl+shift+H</code></p>
-<h2 id="BracketHighlighter"><a href="#BracketHighlighter" class="headerlink" title="BracketHighlighter"></a>BracketHighlighter</h2><p>作用：该插件提供行数列高亮的各种配对的语法符号</p>
-<h2 id="Color​Picker"><a href="#Color​Picker" class="headerlink" title="Color​Picker"></a>Color​Picker</h2><p>作用：调用window色板查看及设置css颜色<br>使用方法： <code>ctrl+shift+c</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/23/Sublime-Text3常用插件及用法/" data-id="cjf3so008000azppvxrsn33j6" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text/">sublime text</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Sublime-Text3安装、删除、更新插件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/23/Sublime-Text3安装、删除、更新插件/" class="article-date">
-  <time datetime="2018-03-23T10:19:38.000Z" itemprop="datePublished">2018-03-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/sublime-text/">sublime text</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/23/Sublime-Text3安装、删除、更新插件/">Sublime-Text3安装、删除、更新插件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="安装package-control"><a href="#安装package-control" class="headerlink" title="安装package control"></a>安装package control</h2><p>一.通过命令安装</p>
-<p>二.通过安装包安装<br>1.进入<code>https://packagecontrol.io/installation</code>下载安装文件<br>2.选择<code>Preferences -&gt; Browse Packages</code> 进入packages目录<br>3.切换到packages上一级目录(Sublime Text 3目录)，进入<code>Installd Packages</code>,并把<code>package control</code>文件粘贴进来<br>4.按住<code>ctrl+shift+p</code>调出命令面板，输入<code>pcip</code>,查看是否安装成功</p>
-<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>按住<code>ctrl+shift+p</code>调出命令面板，输入<code>install</code>，选择列表中的<code>install</code> Package选项，然后在出现的列表中搜索想要安装的插件</p>
-<h2 id="删除插件"><a href="#删除插件" class="headerlink" title="删除插件"></a>删除插件</h2><p>安装<code>ctrl+shift+p</code>调出命令面板，输入<code>remove</code>，选择列表中的<code>remove Package</code>选项，然后在出现的列表中选择要删除的插件。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/23/Sublime-Text3安装、删除、更新插件/" data-id="cjf3snj600009zppvsiuxweuc" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text/">sublime text</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-sublime-text不能安装插件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/23/sublime-text不能安装插件/" class="article-date">
-  <time datetime="2018-03-23T10:19:18.000Z" itemprop="datePublished">2018-03-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/sublime-text/">sublime text</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/23/sublime-text不能安装插件/">sublime-text不能安装插件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用sublime text编辑器的package control安装插件时不能安装，提示<code>there are no packages  available for installation</code>的解决办法</p>
-<ol>
-<li><p>打开命令提示符，输入<code>ping sublime.wbond.Net</code>，查看ip地址</p>
-</li>
-<li><p>得到ip之后，开始修改hosts文件，hosts文件所在目录为<code>C:\Windows\System32\drivers\etc</code></p>
-</li>
-<li><p>在hosts文件中加入 <code>50.116.33.29       sublime.wbond.net</code></p>
-</li>
-<li><p>保存修改，重启sublime</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/23/sublime-text不能安装插件/" data-id="cjf3sn3kq0008zppvavk2pwct" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text/">sublime text</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-安装node-js" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/03/23/安装node-js/" class="article-date">
-  <time datetime="2018-03-23T10:15:54.000Z" itemprop="datePublished">2018-03-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/23/安装node-js/">安装node.js</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="通过nvm安装node-js"><a href="#通过nvm安装node-js" class="headerlink" title="通过nvm安装node.js"></a>通过nvm安装node.js</h3><ol>
-<li>下载安装nvm<br><a href="curl https://raw.github.com/creationix/nvm/master/install.sh | sh">通过curl方式安装</a><br><a href="wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh">通过wget方式安装</a></li>
-<li>安装node.js<br>安装完nvm,重启电脑，执行<code>nvm install stable</code>进行安装node</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/23/安装node-js/" data-id="cjf3siqkp0003zppv5qbyuu40" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nvm/">nvm</a></li></ul>
 
     </footer>
   </div>
@@ -744,7 +889,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/apicloud/">apicloud</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/sublime-text/">sublime text</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试题/">面试题</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/apicloud/">apicloud</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/sublime-text/">sublime text</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试题/">面试题</a></li></ul>
     </div>
   </div>
 
@@ -754,7 +899,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apicloud/">apicloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/">nvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text/">sublime text</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试题/">面试题</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES2015/">ES2015</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apicloud/">apicloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/">nvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oo/">oo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oocss/">oocss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflow/">reflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/repaint/">repaint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text/">sublime text</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webp/">webp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试题/">面试题</a></li></ul>
     </div>
   </div>
 
@@ -764,7 +909,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/apicloud/" style="font-size: 10px;">apicloud</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/sublime-text/" style="font-size: 20px;">sublime text</a> <a href="/tags/面试题/" style="font-size: 16.67px;">面试题</a>
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/apicloud/" style="font-size: 10px;">apicloud</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 13.33px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/node-js/" style="font-size: 13.33px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/oo/" style="font-size: 10px;">oo</a> <a href="/tags/oocss/" style="font-size: 10px;">oocss</a> <a href="/tags/reflow/" style="font-size: 10px;">reflow</a> <a href="/tags/repaint/" style="font-size: 10px;">repaint</a> <a href="/tags/sublime-text/" style="font-size: 20px;">sublime text</a> <a href="/tags/webp/" style="font-size: 10px;">webp</a> <a href="/tags/面试题/" style="font-size: 16.67px;">面试题</a>
     </div>
   </div>
 
@@ -786,23 +931,23 @@
       <ul>
         
           <li>
-            <a href="/2018/03/23/Linux常用命令/">Linux常用命令</a>
+            <a href="/2018/03/29/ES2015/">ES2015</a>
           </li>
         
           <li>
-            <a href="/2018/03/23/HTML5从入门到精通/">HTML5从入门到精通</a>
+            <a href="/2018/03/29/vue/">vue</a>
           </li>
         
           <li>
-            <a href="/2018/03/23/apicloud学习笔记/">apicloud学习笔记</a>
+            <a href="/2018/03/29/oocss/">oocss</a>
           </li>
         
           <li>
-            <a href="/2018/03/23/git入门教程/">git入门教程</a>
+            <a href="/2018/03/29/webp/">webp</a>
           </li>
         
           <li>
-            <a href="/2018/03/23/Sublime-Text3设置/">Sublime-Text3设置</a>
+            <a href="/2018/03/29/前端性能优化-reflow回流和repaint重绘/">前端性能优化-reflow回流和repaint重绘</a>
           </li>
         
       </ul>
